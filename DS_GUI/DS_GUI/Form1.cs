@@ -16,5 +16,10 @@ namespace DS_GUI
         {
             InitializeComponent();
         }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
