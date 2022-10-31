@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.invoernaamtextbox = new System.Windows.Forms.TextBox();
             this.invoernaamlabel = new System.Windows.Forms.Label();
             this.invoerstudentlabel = new System.Windows.Forms.Label();
@@ -111,7 +112,7 @@
             this.invoerachtergrond.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.invoerachtergrond.Location = new System.Drawing.Point(12, 12);
             this.invoerachtergrond.Name = "invoerachtergrond";
-            this.invoerachtergrond.Size = new System.Drawing.Size(600, 648);
+            this.invoerachtergrond.Size = new System.Drawing.Size(600, 530);
             this.invoerachtergrond.TabIndex = 3;
             this.invoerachtergrond.TabStop = false;
             // 
@@ -284,7 +285,7 @@
             this.wijzigenachtergrond.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.wijzigenachtergrond.Location = new System.Drawing.Point(652, 12);
             this.wijzigenachtergrond.Name = "wijzigenachtergrond";
-            this.wijzigenachtergrond.Size = new System.Drawing.Size(600, 648);
+            this.wijzigenachtergrond.Size = new System.Drawing.Size(600, 530);
             this.wijzigenachtergrond.TabIndex = 14;
             this.wijzigenachtergrond.TabStop = false;
             // 
@@ -463,9 +464,9 @@
             // wijzigenstudentopslaanbutton
             // 
             this.wijzigenstudentopslaanbutton.Font = new System.Drawing.Font("Verdana", 10F);
-            this.wijzigenstudentopslaanbutton.Location = new System.Drawing.Point(1051, 594);
+            this.wijzigenstudentopslaanbutton.Location = new System.Drawing.Point(1009, 497);
             this.wijzigenstudentopslaanbutton.Name = "wijzigenstudentopslaanbutton";
-            this.wijzigenstudentopslaanbutton.Size = new System.Drawing.Size(175, 30);
+            this.wijzigenstudentopslaanbutton.Size = new System.Drawing.Size(230, 30);
             this.wijzigenstudentopslaanbutton.TabIndex = 34;
             this.wijzigenstudentopslaanbutton.Text = "Wijzigingen Opslaan";
             this.wijzigenstudentopslaanbutton.UseVisualStyleBackColor = true;
@@ -473,9 +474,9 @@
             // wijzigenstudentverwijderenbutton
             // 
             this.wijzigenstudentverwijderenbutton.Font = new System.Drawing.Font("Verdana", 10F);
-            this.wijzigenstudentverwijderenbutton.Location = new System.Drawing.Point(849, 594);
+            this.wijzigenstudentverwijderenbutton.Location = new System.Drawing.Point(773, 497);
             this.wijzigenstudentverwijderenbutton.Name = "wijzigenstudentverwijderenbutton";
-            this.wijzigenstudentverwijderenbutton.Size = new System.Drawing.Size(175, 30);
+            this.wijzigenstudentverwijderenbutton.Size = new System.Drawing.Size(230, 30);
             this.wijzigenstudentverwijderenbutton.TabIndex = 35;
             this.wijzigenstudentverwijderenbutton.Text = "Student Verwijderen";
             this.wijzigenstudentverwijderenbutton.UseVisualStyleBackColor = true;
@@ -495,7 +496,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.ClientSize = new System.Drawing.Size(1264, 561);
             this.Controls.Add(this.wijzigenstudentlabel);
             this.Controls.Add(this.wijzigenstudentverwijderenbutton);
             this.Controls.Add(this.wijzigenstudentopslaanbutton);
@@ -542,9 +543,10 @@
             this.Controls.Add(this.invoernaamtextbox);
             this.Controls.Add(this.invoerachtergrond);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1280, 720);
-            this.MinimumSize = new System.Drawing.Size(1280, 720);
+            this.MaximumSize = new System.Drawing.Size(1280, 600);
+            this.MinimumSize = new System.Drawing.Size(1280, 600);
             this.Name = "Form1";
             this.Text = "Han Active Directory GUI";
             ((System.ComponentModel.ISupportInitialize)(this.invoerachtergrond)).EndInit();
