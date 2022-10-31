@@ -50,7 +50,6 @@
             this.invoerinlognaamlabel = new System.Windows.Forms.Label();
             this.invoeropslaanbutton = new System.Windows.Forms.Button();
             this.invoergeboortedatumlabel = new System.Windows.Forms.Label();
-            this.invoergeboortedatumtextbox = new System.Windows.Forms.TextBox();
             this.wijzigenachtergrond = new System.Windows.Forms.PictureBox();
             this.wijzigeninlognaambutton = new System.Windows.Forms.Button();
             this.wijzigeninlognaamtextbox = new System.Windows.Forms.TextBox();
@@ -63,7 +62,6 @@
             this.wijzigengeboortedatumlabel = new System.Windows.Forms.Label();
             this.wijzigenemailadreslabel = new System.Windows.Forms.Label();
             this.wijzigenstudierichtinglabel = new System.Windows.Forms.Label();
-            this.wijzigengeboortedatumtextbox = new System.Windows.Forms.TextBox();
             this.wijzigenemailadrestextbox = new System.Windows.Forms.TextBox();
             this.wijzigenstudierichtingtextbox = new System.Windows.Forms.TextBox();
             this.wijzigenmanvrouwtextbox = new System.Windows.Forms.TextBox();
@@ -74,6 +72,8 @@
             this.wijzigenstudentopslaanbutton = new System.Windows.Forms.Button();
             this.wijzigenstudentverwijderenbutton = new System.Windows.Forms.Button();
             this.wijzigenstudentlabel = new System.Windows.Forms.Label();
+            this.invoergeboortedatummaskedtextbox = new System.Windows.Forms.MaskedTextBox();
+            this.wijzigengeboortedatummaskedtextbox = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.invoerachtergrond)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wijzigenachtergrond)).BeginInit();
             this.SuspendLayout();
@@ -273,14 +273,6 @@
             this.invoergeboortedatumlabel.TabIndex = 13;
             this.invoergeboortedatumlabel.Text = "Geboortedatum";
             // 
-            // invoergeboortedatumtextbox
-            // 
-            this.invoergeboortedatumtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoergeboortedatumtextbox.Location = new System.Drawing.Point(189, 347);
-            this.invoergeboortedatumtextbox.Name = "invoergeboortedatumtextbox";
-            this.invoergeboortedatumtextbox.Size = new System.Drawing.Size(230, 30);
-            this.invoergeboortedatumtextbox.TabIndex = 7;
-            // 
             // wijzigenachtergrond
             // 
             this.wijzigenachtergrond.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -398,14 +390,6 @@
             this.wijzigenstudierichtinglabel.TabIndex = 25;
             this.wijzigenstudierichtinglabel.Text = "Studie Richting";
             // 
-            // wijzigengeboortedatumtextbox
-            // 
-            this.wijzigengeboortedatumtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigengeboortedatumtextbox.Location = new System.Drawing.Point(1009, 347);
-            this.wijzigengeboortedatumtextbox.Name = "wijzigengeboortedatumtextbox";
-            this.wijzigengeboortedatumtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigengeboortedatumtextbox.TabIndex = 26;
-            // 
             // wijzigenemailadrestextbox
             // 
             this.wijzigenemailadrestextbox.Font = new System.Drawing.Font("Verdana", 14F);
@@ -493,11 +477,31 @@
             this.wijzigenstudentlabel.TabIndex = 36;
             this.wijzigenstudentlabel.Text = "Wijzigen/Deleten Student";
             // 
+            // invoergeboortedatummaskedtextbox
+            // 
+            this.invoergeboortedatummaskedtextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.invoergeboortedatummaskedtextbox.Location = new System.Drawing.Point(189, 347);
+            this.invoergeboortedatummaskedtextbox.Mask = "00/00/0000";
+            this.invoergeboortedatummaskedtextbox.Name = "invoergeboortedatummaskedtextbox";
+            this.invoergeboortedatummaskedtextbox.Size = new System.Drawing.Size(230, 30);
+            this.invoergeboortedatummaskedtextbox.TabIndex = 37;
+            // 
+            // wijzigengeboortedatummaskedtextbox
+            // 
+            this.wijzigengeboortedatummaskedtextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.wijzigengeboortedatummaskedtextbox.Location = new System.Drawing.Point(1009, 347);
+            this.wijzigengeboortedatummaskedtextbox.Mask = "00/00/0000";
+            this.wijzigengeboortedatummaskedtextbox.Name = "wijzigengeboortedatummaskedtextbox";
+            this.wijzigengeboortedatummaskedtextbox.Size = new System.Drawing.Size(230, 30);
+            this.wijzigengeboortedatummaskedtextbox.TabIndex = 38;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 561);
+            this.Controls.Add(this.wijzigengeboortedatummaskedtextbox);
+            this.Controls.Add(this.invoergeboortedatummaskedtextbox);
             this.Controls.Add(this.wijzigenstudentlabel);
             this.Controls.Add(this.wijzigenstudentverwijderenbutton);
             this.Controls.Add(this.wijzigenstudentopslaanbutton);
@@ -508,7 +512,6 @@
             this.Controls.Add(this.wijzigenmanvrouwtextbox);
             this.Controls.Add(this.wijzigenstudierichtingtextbox);
             this.Controls.Add(this.wijzigenemailadrestextbox);
-            this.Controls.Add(this.wijzigengeboortedatumtextbox);
             this.Controls.Add(this.wijzigenstudierichtinglabel);
             this.Controls.Add(this.wijzigenemailadreslabel);
             this.Controls.Add(this.wijzigengeboortedatumlabel);
@@ -521,7 +524,6 @@
             this.Controls.Add(this.wijzigeninlognaamtextbox);
             this.Controls.Add(this.wijzigeninlognaambutton);
             this.Controls.Add(this.wijzigenachtergrond);
-            this.Controls.Add(this.invoergeboortedatumtextbox);
             this.Controls.Add(this.invoergeboortedatumlabel);
             this.Controls.Add(this.invoeropslaanbutton);
             this.Controls.Add(this.invoerinlognaamlabel);
@@ -580,7 +582,6 @@
         private System.Windows.Forms.Label invoerinlognaamlabel;
         private System.Windows.Forms.Button invoeropslaanbutton;
         private System.Windows.Forms.Label invoergeboortedatumlabel;
-        private System.Windows.Forms.TextBox invoergeboortedatumtextbox;
         private System.Windows.Forms.PictureBox wijzigenachtergrond;
         private System.Windows.Forms.Button wijzigeninlognaambutton;
         private System.Windows.Forms.TextBox wijzigeninlognaamtextbox;
@@ -593,7 +594,6 @@
         private System.Windows.Forms.Label wijzigengeboortedatumlabel;
         private System.Windows.Forms.Label wijzigenemailadreslabel;
         private System.Windows.Forms.Label wijzigenstudierichtinglabel;
-        private System.Windows.Forms.TextBox wijzigengeboortedatumtextbox;
         private System.Windows.Forms.TextBox wijzigenemailadrestextbox;
         private System.Windows.Forms.TextBox wijzigenstudierichtingtextbox;
         private System.Windows.Forms.TextBox wijzigenmanvrouwtextbox;
@@ -604,6 +604,8 @@
         private System.Windows.Forms.Button wijzigenstudentopslaanbutton;
         private System.Windows.Forms.Button wijzigenstudentverwijderenbutton;
         private System.Windows.Forms.Label wijzigenstudentlabel;
+        private System.Windows.Forms.MaskedTextBox invoergeboortedatummaskedtextbox;
+        private System.Windows.Forms.MaskedTextBox wijzigengeboortedatummaskedtextbox;
     }
 }
 
