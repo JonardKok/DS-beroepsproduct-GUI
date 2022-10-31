@@ -262,6 +262,7 @@
             this.invoeropslaanbutton.TabIndex = 10;
             this.invoeropslaanbutton.Text = "Opslaan";
             this.invoeropslaanbutton.UseVisualStyleBackColor = true;
+            this.invoeropslaanbutton.Click += new System.EventHandler(this.invoeropslaanbutton_Click);
             // 
             // invoergeboortedatumlabel
             // 
