@@ -36,13 +36,18 @@
             this.manvrouwlabel = new System.Windows.Forms.Label();
             this.adreslabel = new System.Windows.Forms.Label();
             this.woonplaatslabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.emailadreslabel = new System.Windows.Forms.Label();
             this.studierichtinglabel = new System.Windows.Forms.Label();
             this.studierichtingtextbox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.manvrouwtextbox = new System.Windows.Forms.TextBox();
+            this.adrestextbox = new System.Windows.Forms.TextBox();
+            this.woonplaatstextbox = new System.Windows.Forms.TextBox();
+            this.voornaamtextbox = new System.Windows.Forms.TextBox();
+            this.emailadrestextbox = new System.Windows.Forms.TextBox();
+            this.genereerinlognaambutton = new System.Windows.Forms.Button();
+            this.inlognaamtextbox = new System.Windows.Forms.TextBox();
+            this.inlognaamlabel = new System.Windows.Forms.Label();
+            this.opslaanboxer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.invoerachtergrond)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +56,7 @@
             this.naamtextbox.Font = new System.Drawing.Font("Verdana", 14F);
             this.naamtextbox.Location = new System.Drawing.Point(202, 97);
             this.naamtextbox.Name = "naamtextbox";
-            this.naamtextbox.Size = new System.Drawing.Size(243, 30);
+            this.naamtextbox.Size = new System.Drawing.Size(230, 30);
             this.naamtextbox.TabIndex = 0;
             // 
             // naamlabel
@@ -124,15 +129,15 @@
             this.woonplaatslabel.TabIndex = 7;
             this.woonplaatslabel.Text = "Woonplaats";
             // 
-            // label5
+            // emailadreslabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 14F);
-            this.label5.Location = new System.Drawing.Point(40, 350);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(216, 23);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "onbekendpaslabelaan";
+            this.emailadreslabel.AutoSize = true;
+            this.emailadreslabel.Font = new System.Drawing.Font("Verdana", 14F);
+            this.emailadreslabel.Location = new System.Drawing.Point(40, 350);
+            this.emailadreslabel.Name = "emailadreslabel";
+            this.emailadreslabel.Size = new System.Drawing.Size(133, 23);
+            this.emailadreslabel.TabIndex = 8;
+            this.emailadreslabel.Text = "E-mail Adres";
             // 
             // studierichtinglabel
             // 
@@ -149,53 +154,104 @@
             this.studierichtingtextbox.Font = new System.Drawing.Font("Verdana", 14F);
             this.studierichtingtextbox.Location = new System.Drawing.Point(202, 397);
             this.studierichtingtextbox.Name = "studierichtingtextbox";
-            this.studierichtingtextbox.Size = new System.Drawing.Size(243, 30);
-            this.studierichtingtextbox.TabIndex = 10;
+            this.studierichtingtextbox.Size = new System.Drawing.Size(230, 30);
+            this.studierichtingtextbox.TabIndex = 8;
             // 
-            // textBox1
+            // manvrouwtextbox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 14F);
-            this.textBox1.Location = new System.Drawing.Point(202, 297);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(243, 30);
-            this.textBox1.TabIndex = 11;
+            this.manvrouwtextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.manvrouwtextbox.Location = new System.Drawing.Point(202, 297);
+            this.manvrouwtextbox.Name = "manvrouwtextbox";
+            this.manvrouwtextbox.Size = new System.Drawing.Size(230, 30);
+            this.manvrouwtextbox.TabIndex = 6;
             // 
-            // textBox2
+            // adrestextbox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Verdana", 14F);
-            this.textBox2.Location = new System.Drawing.Point(202, 247);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 30);
-            this.textBox2.TabIndex = 12;
+            this.adrestextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.adrestextbox.Location = new System.Drawing.Point(202, 247);
+            this.adrestextbox.Name = "adrestextbox";
+            this.adrestextbox.Size = new System.Drawing.Size(230, 30);
+            this.adrestextbox.TabIndex = 5;
             // 
-            // textBox3
+            // woonplaatstextbox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Verdana", 14F);
-            this.textBox3.Location = new System.Drawing.Point(202, 197);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(243, 30);
-            this.textBox3.TabIndex = 13;
+            this.woonplaatstextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.woonplaatstextbox.Location = new System.Drawing.Point(202, 197);
+            this.woonplaatstextbox.Name = "woonplaatstextbox";
+            this.woonplaatstextbox.Size = new System.Drawing.Size(230, 30);
+            this.woonplaatstextbox.TabIndex = 4;
             // 
-            // textBox4
+            // voornaamtextbox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Verdana", 14F);
-            this.textBox4.Location = new System.Drawing.Point(202, 147);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(243, 30);
-            this.textBox4.TabIndex = 14;
+            this.voornaamtextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.voornaamtextbox.Location = new System.Drawing.Point(202, 147);
+            this.voornaamtextbox.Name = "voornaamtextbox";
+            this.voornaamtextbox.Size = new System.Drawing.Size(230, 30);
+            this.voornaamtextbox.TabIndex = 3;
+            // 
+            // emailadrestextbox
+            // 
+            this.emailadrestextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.emailadrestextbox.Location = new System.Drawing.Point(202, 347);
+            this.emailadrestextbox.Name = "emailadrestextbox";
+            this.emailadrestextbox.Size = new System.Drawing.Size(230, 30);
+            this.emailadrestextbox.TabIndex = 7;
+            // 
+            // genereerinlognaambutton
+            // 
+            this.genereerinlognaambutton.Font = new System.Drawing.Font("Verdana", 10F);
+            this.genereerinlognaambutton.Location = new System.Drawing.Point(438, 93);
+            this.genereerinlognaambutton.Name = "genereerinlognaambutton";
+            this.genereerinlognaambutton.Size = new System.Drawing.Size(160, 30);
+            this.genereerinlognaambutton.TabIndex = 1;
+            this.genereerinlognaambutton.Text = "Genereer Inlognaam";
+            this.genereerinlognaambutton.UseVisualStyleBackColor = true;
+            // 
+            // inlognaamtextbox
+            // 
+            this.inlognaamtextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.inlognaamtextbox.Location = new System.Drawing.Point(464, 129);
+            this.inlognaamtextbox.Name = "inlognaamtextbox";
+            this.inlognaamtextbox.Size = new System.Drawing.Size(108, 30);
+            this.inlognaamtextbox.TabIndex = 2;
+            // 
+            // inlognaamlabel
+            // 
+            this.inlognaamlabel.AutoSize = true;
+            this.inlognaamlabel.Font = new System.Drawing.Font("Verdana", 14F);
+            this.inlognaamlabel.Location = new System.Drawing.Point(465, 162);
+            this.inlognaamlabel.Name = "inlognaamlabel";
+            this.inlognaamlabel.Size = new System.Drawing.Size(112, 23);
+            this.inlognaamlabel.TabIndex = 12;
+            this.inlognaamlabel.Text = "Inlognaam";
+            // 
+            // opslaanboxer
+            // 
+            this.opslaanboxer.Font = new System.Drawing.Font("Verdana", 10F);
+            this.opslaanboxer.Location = new System.Drawing.Point(202, 433);
+            this.opslaanboxer.Name = "opslaanboxer";
+            this.opslaanboxer.Size = new System.Drawing.Size(230, 30);
+            this.opslaanboxer.TabIndex = 9;
+            this.opslaanboxer.Text = "Opslaan";
+            this.opslaanboxer.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.opslaanboxer);
+            this.Controls.Add(this.inlognaamlabel);
+            this.Controls.Add(this.inlognaamtextbox);
+            this.Controls.Add(this.genereerinlognaambutton);
+            this.Controls.Add(this.emailadrestextbox);
+            this.Controls.Add(this.voornaamtextbox);
+            this.Controls.Add(this.woonplaatstextbox);
+            this.Controls.Add(this.adrestextbox);
+            this.Controls.Add(this.manvrouwtextbox);
             this.Controls.Add(this.studierichtingtextbox);
             this.Controls.Add(this.studierichtinglabel);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.emailadreslabel);
             this.Controls.Add(this.woonplaatslabel);
             this.Controls.Add(this.adreslabel);
             this.Controls.Add(this.manvrouwlabel);
@@ -205,7 +261,7 @@
             this.Controls.Add(this.naamtextbox);
             this.Controls.Add(this.invoerachtergrond);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Han Active Directory GUI";
             ((System.ComponentModel.ISupportInitialize)(this.invoerachtergrond)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,13 +278,18 @@
         private System.Windows.Forms.Label manvrouwlabel;
         private System.Windows.Forms.Label adreslabel;
         private System.Windows.Forms.Label woonplaatslabel;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label emailadreslabel;
         private System.Windows.Forms.Label studierichtinglabel;
         private System.Windows.Forms.TextBox studierichtingtextbox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox manvrouwtextbox;
+        private System.Windows.Forms.TextBox adrestextbox;
+        private System.Windows.Forms.TextBox woonplaatstextbox;
+        private System.Windows.Forms.TextBox voornaamtextbox;
+        private System.Windows.Forms.TextBox emailadrestextbox;
+        private System.Windows.Forms.Button genereerinlognaambutton;
+        private System.Windows.Forms.TextBox inlognaamtextbox;
+        private System.Windows.Forms.Label inlognaamlabel;
+        private System.Windows.Forms.Button opslaanboxer;
     }
 }
 
