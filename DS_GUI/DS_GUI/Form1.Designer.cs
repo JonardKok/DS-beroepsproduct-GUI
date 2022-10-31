@@ -233,6 +233,7 @@
             this.invoerinlognaambutton.TabIndex = 1;
             this.invoerinlognaambutton.Text = "Genereer Inlognaam";
             this.invoerinlognaambutton.UseVisualStyleBackColor = true;
+            this.invoerinlognaambutton.Click += new System.EventHandler(this.invoerinlognaambutton_Click);
             // 
             // invoerinlognaamtextbox
             // 
