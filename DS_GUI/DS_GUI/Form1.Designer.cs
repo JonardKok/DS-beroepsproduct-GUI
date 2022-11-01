@@ -39,7 +39,6 @@
             this.invoerwoonplaatslabel = new System.Windows.Forms.Label();
             this.invoerwachtwoordlabel = new System.Windows.Forms.Label();
             this.invoerstudierichtinglabel = new System.Windows.Forms.Label();
-            this.invoermanvrouwtextbox = new System.Windows.Forms.TextBox();
             this.invoeradrestextbox = new System.Windows.Forms.TextBox();
             this.invoerwoonplaatstextbox = new System.Windows.Forms.TextBox();
             this.invoervoornaamtextbox = new System.Windows.Forms.TextBox();
@@ -62,7 +61,6 @@
             this.wijzigewachtwoordlabel = new System.Windows.Forms.Label();
             this.wijzigenstudierichtinglabel = new System.Windows.Forms.Label();
             this.wijzigenwachtwoordtextbox = new System.Windows.Forms.TextBox();
-            this.wijzigenmanvrouwtextbox = new System.Windows.Forms.TextBox();
             this.wijzigenadrestextbox = new System.Windows.Forms.TextBox();
             this.wijzigenwoonplaatstextbox = new System.Windows.Forms.TextBox();
             this.wijzigenvoornaamtextbox = new System.Windows.Forms.TextBox();
@@ -75,6 +73,8 @@
             this.invoerwachtwoordlatenzienbutton = new System.Windows.Forms.Button();
             this.invoerstudierichtingcombobox = new System.Windows.Forms.ComboBox();
             this.wijzigenstudierichtingcombobox = new System.Windows.Forms.ComboBox();
+            this.invoermanvrouwcombobox = new System.Windows.Forms.ComboBox();
+            this.wijzigenmanvrouwcombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.invoerachtergrond)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wijzigenachtergrond)).BeginInit();
             this.SuspendLayout();
@@ -176,14 +176,6 @@
             this.invoerstudierichtinglabel.Size = new System.Drawing.Size(156, 23);
             this.invoerstudierichtinglabel.TabIndex = 9;
             this.invoerstudierichtinglabel.Text = "Studie Richting";
-            // 
-            // invoermanvrouwtextbox
-            // 
-            this.invoermanvrouwtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoermanvrouwtextbox.Location = new System.Drawing.Point(189, 297);
-            this.invoermanvrouwtextbox.Name = "invoermanvrouwtextbox";
-            this.invoermanvrouwtextbox.Size = new System.Drawing.Size(230, 30);
-            this.invoermanvrouwtextbox.TabIndex = 6;
             // 
             // invoeradrestextbox
             // 
@@ -394,14 +386,6 @@
             this.wijzigenwachtwoordtextbox.Size = new System.Drawing.Size(230, 30);
             this.wijzigenwachtwoordtextbox.TabIndex = 27;
             // 
-            // wijzigenmanvrouwtextbox
-            // 
-            this.wijzigenmanvrouwtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenmanvrouwtextbox.Location = new System.Drawing.Point(1009, 297);
-            this.wijzigenmanvrouwtextbox.Name = "wijzigenmanvrouwtextbox";
-            this.wijzigenmanvrouwtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenmanvrouwtextbox.TabIndex = 29;
-            // 
             // wijzigenadrestextbox
             // 
             this.wijzigenadrestextbox.Font = new System.Drawing.Font("Verdana", 14F);
@@ -485,7 +469,7 @@
             // 
             // invoerwachtwoordlatenzienbutton
             // 
-            this.invoerwachtwoordlatenzienbutton.Location = new System.Drawing.Point(425, 400);
+            this.invoerwachtwoordlatenzienbutton.Location = new System.Drawing.Point(425, 403);
             this.invoerwachtwoordlatenzienbutton.Name = "invoerwachtwoordlatenzienbutton";
             this.invoerwachtwoordlatenzienbutton.Size = new System.Drawing.Size(129, 23);
             this.invoerwachtwoordlatenzienbutton.TabIndex = 39;
@@ -521,11 +505,37 @@
             this.wijzigenstudierichtingcombobox.Size = new System.Drawing.Size(230, 31);
             this.wijzigenstudierichtingcombobox.TabIndex = 41;
             // 
+            // invoermanvrouwcombobox
+            // 
+            this.invoermanvrouwcombobox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.invoermanvrouwcombobox.FormattingEnabled = true;
+            this.invoermanvrouwcombobox.Items.AddRange(new object[] {
+            "Man",
+            "Vrouw"});
+            this.invoermanvrouwcombobox.Location = new System.Drawing.Point(189, 297);
+            this.invoermanvrouwcombobox.Name = "invoermanvrouwcombobox";
+            this.invoermanvrouwcombobox.Size = new System.Drawing.Size(230, 31);
+            this.invoermanvrouwcombobox.TabIndex = 42;
+            // 
+            // wijzigenmanvrouwcombobox
+            // 
+            this.wijzigenmanvrouwcombobox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.wijzigenmanvrouwcombobox.FormattingEnabled = true;
+            this.wijzigenmanvrouwcombobox.Items.AddRange(new object[] {
+            "Man",
+            "Vrouw"});
+            this.wijzigenmanvrouwcombobox.Location = new System.Drawing.Point(1009, 297);
+            this.wijzigenmanvrouwcombobox.Name = "wijzigenmanvrouwcombobox";
+            this.wijzigenmanvrouwcombobox.Size = new System.Drawing.Size(230, 31);
+            this.wijzigenmanvrouwcombobox.TabIndex = 43;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 561);
+            this.Controls.Add(this.wijzigenmanvrouwcombobox);
+            this.Controls.Add(this.invoermanvrouwcombobox);
             this.Controls.Add(this.wijzigenstudierichtingcombobox);
             this.Controls.Add(this.invoerstudierichtingcombobox);
             this.Controls.Add(this.invoerwachtwoordlatenzienbutton);
@@ -538,7 +548,6 @@
             this.Controls.Add(this.wijzigenvoornaamtextbox);
             this.Controls.Add(this.wijzigenwoonplaatstextbox);
             this.Controls.Add(this.wijzigenadrestextbox);
-            this.Controls.Add(this.wijzigenmanvrouwtextbox);
             this.Controls.Add(this.wijzigenwachtwoordtextbox);
             this.Controls.Add(this.wijzigenstudierichtinglabel);
             this.Controls.Add(this.wijzigewachtwoordlabel);
@@ -561,7 +570,6 @@
             this.Controls.Add(this.invoervoornaamtextbox);
             this.Controls.Add(this.invoerwoonplaatstextbox);
             this.Controls.Add(this.invoeradrestextbox);
-            this.Controls.Add(this.invoermanvrouwtextbox);
             this.Controls.Add(this.invoerstudierichtinglabel);
             this.Controls.Add(this.invoerwachtwoordlabel);
             this.Controls.Add(this.invoerwoonplaatslabel);
@@ -598,7 +606,6 @@
         private System.Windows.Forms.Label invoerwoonplaatslabel;
         private System.Windows.Forms.Label invoerwachtwoordlabel;
         private System.Windows.Forms.Label invoerstudierichtinglabel;
-        private System.Windows.Forms.TextBox invoermanvrouwtextbox;
         private System.Windows.Forms.TextBox invoeradrestextbox;
         private System.Windows.Forms.TextBox invoerwoonplaatstextbox;
         private System.Windows.Forms.TextBox invoervoornaamtextbox;
@@ -621,7 +628,6 @@
         private System.Windows.Forms.Label wijzigewachtwoordlabel;
         private System.Windows.Forms.Label wijzigenstudierichtinglabel;
         private System.Windows.Forms.TextBox wijzigenwachtwoordtextbox;
-        private System.Windows.Forms.TextBox wijzigenmanvrouwtextbox;
         private System.Windows.Forms.TextBox wijzigenadrestextbox;
         private System.Windows.Forms.TextBox wijzigenwoonplaatstextbox;
         private System.Windows.Forms.TextBox wijzigenvoornaamtextbox;
@@ -634,6 +640,8 @@
         private System.Windows.Forms.Button invoerwachtwoordlatenzienbutton;
         private System.Windows.Forms.ComboBox invoerstudierichtingcombobox;
         private System.Windows.Forms.ComboBox wijzigenstudierichtingcombobox;
+        private System.Windows.Forms.ComboBox invoermanvrouwcombobox;
+        private System.Windows.Forms.ComboBox wijzigenmanvrouwcombobox;
     }
 }
 

@@ -61,10 +61,10 @@ namespace DS_GUI
                 invoerinlognaamtextbox.Text = invoerinlognaamtextbox.Text + num.ToString(); 
             }
             //genereer wachtwoord
-            invoerwachtwoordtextbox.Text = ""; //Zorgt ervoor dat het wachtwoordvak leeg is.
+            invoerwachtwoordtextbox.Text = ""; //Zorgt ervoor dat het wachtwoordvak leeg is als er opnieuw geklikt wordt.
             string allowedPasswordCharacters = "aAbBcCdDeEfFgGhHiIjJhHkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ01234567890123456789,;:!*$@-_=,;:!*$@-_=";
-            int length = random.Next(8, 15);
-            for (int i = 0; i < length; i++)
+            int passwordLength = random.Next(8, 15);
+            for (int i = 0; i < passwordLength; i++)
             {
                 int characterNumber = random.Next(1, allowedPasswordCharacters.Length);
                 invoerwachtwoordtextbox.Text = invoerwachtwoordtextbox.Text + allowedPasswordCharacters[characterNumber];
@@ -72,9 +72,39 @@ namespace DS_GUI
             return;
         }
 
+
+
         //Opslaan user
         private void invoeropslaanbutton_Click(object sender, EventArgs e)
         {
+            //Datum checks
+            string strDateTime = invoergeboortedatummaskedtextbox.Text;
+            string correctedDate = strDateTime.Replace(" ", "0");
+            DateTime userDate = DateTime.Now;
+            try
+            {
+                userDate = DateTime.ParseExact(correctedDate, "dd/MM/yyyy", null);
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(correctedDate + " is geen geldige datum. Foutmelding: " + exception, "Ongeldige datum", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DateTime tijd = new DateTime(1, 1, 1);
+            TimeSpan verschil = DateTime.Now - userDate;
+            int jaarVerschil = (tijd + verschil).Year - 1;
+            if (jaarVerschil < 4)
+            {
+                MessageBox.Show("Opgegeven geboortedatum geeft een te jonge leeftijd, datum mag niet in het systeem.", "Datumfout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            } else if (jaarVerschil > 150)
+            {
+                MessageBox.Show("Opgegeven geboortedatum geeft een te oude leeftijd, datum mag niet in het systeem.", "Datumfout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //User toevoegen
             try
             {
                 DirectoryEntry directoryEntry = new DirectoryEntry("LDAP://OU=" + invoerstudierichtingcombobox.Text + ",DC=jonard,DC=prive");
@@ -84,25 +114,46 @@ namespace DS_GUI
                 childEntry.Properties["givenName"].Value = invoervoornaamtextbox.Text; //Voornaam
                 childEntry.Properties["l"].Value = invoerwoonplaatstextbox.Text; //Woonplaats
                 childEntry.Properties["streetAddress"].Value = invoeradrestextbox.Text; //Adres
-                childEntry.Properties["personalTitle"].Value = invoergeboortedatummaskedtextbox.Text; //Geslacht
-                childEntry.Properties["info"].Value = invoervoornaamtextbox.Text; // Geboortedatum
+                childEntry.Properties["personalTitle"].Value = invoermanvrouwcombobox.Text; //Geslacht
+                childEntry.Properties["info"].Value = invoergeboortedatummaskedtextbox.Text; // Geboortedatum
                 childEntry.CommitChanges();
                 directoryEntry.CommitChanges();
                 childEntry.Invoke("SetPassword", new object[] { invoerwachtwoordtextbox });
                 childEntry.CommitChanges();
-                MessageBox.Show("Gebruiker toegevoegd", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             catch (Exception ex)
             {
-              MessageBox.Show(ex.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("De gebruiker kon niet toegevoegd worden. Foutmelding: " + ex.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            String[] groupNames = new string[2];
+            groupNames[0] = invoermanvrouwcombobox.Text == "Man" ? "GL_Mannen" : "GL_Vrouwen";
+            groupNames[1] = jaarVerschil >= 22 ? "GL_StudOuderdan22" : "GL_StudeJongerdan22";
+            string userNamePath = invoerinlognaamtextbox.Text; // "CN=" + invoerinlognaamtextbox.Text +",OU=" + invoerstudierichtingcombobox.Text + ",DC=jonard,DC=prive";
+            for (int i = 0; i < groupNames.Length; i++)
+            {
+                try
+                {
+                    using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "jonard.prive"))
+                    {
+                        GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, groupNames[i]);
+                        group.Members.Add(pc, IdentityType.SamAccountName, userNamePath);
+                        group.Save();
+                    }
+                }
+                catch (System.DirectoryServices.DirectoryServicesCOMException E)
+                {
+                    MessageBox.Show("De gebruiker kon niet toegevoegd worden aan groep: " +  groupNames[i] + ". Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            MessageBox.Show("Gebruiker toegevoegd", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         
         //Wachtwoord laten zien.
         private void invoerwachtwoordlatenzienbutton_Click(object sender, EventArgs e)
         {
-            //Vraagt voor of het wachtwoord getoond moet worden
+            //Vraagt  of het wachtwoord getoond moet worden
             if (invoerwachtwoordtextbox.PasswordChar == '*')
             {
                 DialogResult result;
@@ -113,11 +164,13 @@ namespace DS_GUI
                 }
                 invoerwachtwoordlatenzienbutton.Text = "Wachtwoord verbergen";
                 invoerwachtwoordtextbox.PasswordChar = '\0'; //Geeft een null character aan PasswordChar
+                wijzigenwachtwoordtextbox.PasswordChar = '\0';
                 return;
             } else
             {
-                invoerwachtwoordtextbox.PasswordChar = '*';
                 invoerwachtwoordlatenzienbutton.Text = "Wachtwoord laten zien";
+                invoerwachtwoordtextbox.PasswordChar = '*';
+                wijzigenwachtwoordtextbox.PasswordChar = '*';
             }
         }
 
@@ -143,19 +196,17 @@ namespace DS_GUI
                 if (gebruikerInfo == null)
                 {
                     if (i == wijzigenstudierichtingcombobox.Items.Count - 1)
-                    {
-                        MessageBox.Show("Er is geen gebruiker met die inlognaam", "Melding", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    {                        MessageBox.Show("Er is geen gebruiker met die inlognaam", "Melding", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     i++;
                     continue;
                 }
-                
                 wijzigennaamtextbox.Text =  gebruikerInfo.Properties.Contains("sn") ? gebruikerInfo.Properties["sn"][0].ToString() : "";
                 wijzigenvoornaamtextbox.Text = gebruikerInfo.Properties.Contains("givenName") ? gebruikerInfo.Properties["sn"][0].ToString() : "";
                 wijzigenwoonplaatstextbox.Text = gebruikerInfo.Properties.Contains("l") ? gebruikerInfo.Properties["l"][0].ToString() : "";
                 wijzigenadrestextbox.Text = gebruikerInfo.Properties.Contains("streetAddress") ? gebruikerInfo.Properties["streetAddress"][0].ToString() : "";
-                wijzigenmanvrouwtextbox.Text = gebruikerInfo.Properties.Contains("personalTitle") ? gebruikerInfo.Properties["personalTitle"][0].ToString() : "";
+                wijzigenmanvrouwcombobox.Text = gebruikerInfo.Properties.Contains("personalTitle") ? gebruikerInfo.Properties["personalTitle"][0].ToString() : "";
                 wijzigengeboortedatummaskedtextbox.Text = gebruikerInfo.Properties.Contains("info") ? gebruikerInfo.Properties["info"][0].ToString() : "";
                 wijzigenstudierichtingcombobox.Text = OU;
             }
