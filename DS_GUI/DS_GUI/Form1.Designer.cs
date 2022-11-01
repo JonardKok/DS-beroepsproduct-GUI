@@ -437,6 +437,7 @@
             this.wijzigenstudentverwijderenbutton.TabIndex = 35;
             this.wijzigenstudentverwijderenbutton.Text = "Student Verwijderen";
             this.wijzigenstudentverwijderenbutton.UseVisualStyleBackColor = true;
+            this.wijzigenstudentverwijderenbutton.Click += new System.EventHandler(this.wijzigenstudentverwijderenbutton_Click);
             // 
             // wijzigenstudentlabel
             // 

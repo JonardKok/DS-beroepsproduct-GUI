@@ -196,14 +196,15 @@ namespace DS_GUI
                 if (gebruikerInfo == null)
                 {
                     if (i == wijzigenstudierichtingcombobox.Items.Count - 1)
-                    {                        MessageBox.Show("Er is geen gebruiker met die inlognaam", "Melding", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    {
+                        MessageBox.Show("Er is geen gebruiker met die inlognaam", "Melding", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     i++;
                     continue;
                 }
                 wijzigennaamtextbox.Text =  gebruikerInfo.Properties.Contains("sn") ? gebruikerInfo.Properties["sn"][0].ToString() : "";
-                wijzigenvoornaamtextbox.Text = gebruikerInfo.Properties.Contains("givenName") ? gebruikerInfo.Properties["sn"][0].ToString() : "";
+                wijzigenvoornaamtextbox.Text = gebruikerInfo.Properties.Contains("givenName") ? gebruikerInfo.Properties["givenName"][0].ToString() : "";
                 wijzigenwoonplaatstextbox.Text = gebruikerInfo.Properties.Contains("l") ? gebruikerInfo.Properties["l"][0].ToString() : "";
                 wijzigenadrestextbox.Text = gebruikerInfo.Properties.Contains("streetAddress") ? gebruikerInfo.Properties["streetAddress"][0].ToString() : "";
                 wijzigenmanvrouwcombobox.Text = gebruikerInfo.Properties.Contains("personalTitle") ? gebruikerInfo.Properties["personalTitle"][0].ToString() : "";
@@ -211,6 +212,23 @@ namespace DS_GUI
                 wijzigenstudierichtingcombobox.Text = OU;
             }
 
+        }
+
+        private void wijzigenstudentverwijderenbutton_Click(object sender, EventArgs e)
+        {
+            PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
+            UserPrincipal user = UserPrincipal.FindByIdentity(ctx, wijzigeninlognaamtextbox.Text);
+            if (user != null)
+            {
+                DialogResult result;
+                result = MessageBox.Show("Weet u zeker dat u deze gebruiker wil verwijderen? Dit is onomkeerbaar.", "Melding!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    user.Delete();
+                    return;
+                }
+                
+            }
         }
     }
 }
