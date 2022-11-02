@@ -427,6 +427,7 @@
             this.wijzigenstudentopslaanbutton.TabIndex = 34;
             this.wijzigenstudentopslaanbutton.Text = "Wijzigingen Opslaan";
             this.wijzigenstudentopslaanbutton.UseVisualStyleBackColor = true;
+            this.wijzigenstudentopslaanbutton.Click += new System.EventHandler(this.wijzigenstudentopslaanbutton_Click);
             // 
             // wijzigenstudentverwijderenbutton
             // 

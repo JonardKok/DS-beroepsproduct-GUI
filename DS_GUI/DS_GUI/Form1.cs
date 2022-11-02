@@ -230,5 +230,44 @@ namespace DS_GUI
                 
             }
         }
+
+        private void wijzigenstudentopslaanbutton_Click(object sender, EventArgs e)
+        {
+            DirectoryEntry ldapConnection = new DirectoryEntry("LDAP://DC=jonard,DC=prive");
+            ldapConnection.Path = "LDAP://DC=jonard,DC=prive";
+            ldapConnection.AuthenticationType = AuthenticationTypes.Secure;
+            string username = wijzigeninlognaamtextbox.Text;
+            try
+            {
+                DirectoryEntry myLdapConnection = ldapConnection;
+                DirectorySearcher search = new DirectorySearcher(myLdapConnection);
+                search.Filter = "(cn=" + username + ")";
+                search.PropertiesToLoad.Add("title");
+                SearchResult result = search.FindOne();
+                if (result != null)
+                {
+                    MessageBox.Show("Resultaat gevonden!" + result.ToString());
+                    return;
+                    // create new object from search result
+                    DirectoryEntry entryToUpdate = result.GetDirectoryEntry();
+                    // show existing title
+                    Console.WriteLine("Current title: " + entryToUpdate.Properties["title"][0].ToString());
+                    Console.Write("\n\nEnter new title : ");
+                    // get new title and write to AD
+                    String newTitle = Console.ReadLine();
+                    entryToUpdate.Properties["title"].Value = newTitle;
+                    entryToUpdate.CommitChanges();
+                    Console.WriteLine("\n\n…new title saved");
+                }
+                else
+                {
+                    MessageBox.Show("Geen resultaat gevonden!" + result.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught:\n\n" + ex.ToString());
+            }
+        }
     }
 }
