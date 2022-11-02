@@ -81,6 +81,10 @@
             this.wijzigenstudentsiqtextbox = new System.Windows.Forms.TextBox();
             this.wijzigenstudentiqlabel = new System.Windows.Forms.Label();
             this.wijzigenwachtwoordlatenzienbutton = new System.Windows.Forms.Button();
+            this.wijzigenemailadreslabel = new System.Windows.Forms.Label();
+            this.wijzigenemailadrestextbox = new System.Windows.Forms.TextBox();
+            this.invoeremailadreslabel = new System.Windows.Forms.Label();
+            this.invoeremailadrestextbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.invoerachtergrond)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wijzigenachtergrond)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +92,7 @@
             // invoernaamtextbox
             // 
             this.invoernaamtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoernaamtextbox.Location = new System.Drawing.Point(189, 97);
+            this.invoernaamtextbox.Location = new System.Drawing.Point(189, 60);
             this.invoernaamtextbox.Name = "invoernaamtextbox";
             this.invoernaamtextbox.Size = new System.Drawing.Size(230, 30);
             this.invoernaamtextbox.TabIndex = 0;
@@ -97,7 +101,7 @@
             // 
             this.invoernaamlabel.AutoSize = true;
             this.invoernaamlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoernaamlabel.Location = new System.Drawing.Point(25, 100);
+            this.invoernaamlabel.Location = new System.Drawing.Point(25, 60);
             this.invoernaamlabel.Name = "invoernaamlabel";
             this.invoernaamlabel.Size = new System.Drawing.Size(64, 23);
             this.invoernaamlabel.TabIndex = 1;
@@ -108,7 +112,7 @@
             this.invoerstudentlabel.AutoSize = true;
             this.invoerstudentlabel.BackColor = System.Drawing.Color.Transparent;
             this.invoerstudentlabel.Font = new System.Drawing.Font("Verdana", 20F);
-            this.invoerstudentlabel.Location = new System.Drawing.Point(25, 25);
+            this.invoerstudentlabel.Location = new System.Drawing.Point(25, 20);
             this.invoerstudentlabel.Name = "invoerstudentlabel";
             this.invoerstudentlabel.Size = new System.Drawing.Size(328, 32);
             this.invoerstudentlabel.TabIndex = 2;
@@ -127,7 +131,7 @@
             // 
             this.invoervoornaamlabel.AutoSize = true;
             this.invoervoornaamlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoervoornaamlabel.Location = new System.Drawing.Point(25, 150);
+            this.invoervoornaamlabel.Location = new System.Drawing.Point(25, 110);
             this.invoervoornaamlabel.Name = "invoervoornaamlabel";
             this.invoervoornaamlabel.Size = new System.Drawing.Size(106, 23);
             this.invoervoornaamlabel.TabIndex = 4;
@@ -137,7 +141,7 @@
             // 
             this.invoermanvrouwlabel.AutoSize = true;
             this.invoermanvrouwlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoermanvrouwlabel.Location = new System.Drawing.Point(25, 300);
+            this.invoermanvrouwlabel.Location = new System.Drawing.Point(25, 310);
             this.invoermanvrouwlabel.Name = "invoermanvrouwlabel";
             this.invoermanvrouwlabel.Size = new System.Drawing.Size(119, 23);
             this.invoermanvrouwlabel.TabIndex = 5;
@@ -147,7 +151,7 @@
             // 
             this.invoeradreslabel.AutoSize = true;
             this.invoeradreslabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoeradreslabel.Location = new System.Drawing.Point(25, 250);
+            this.invoeradreslabel.Location = new System.Drawing.Point(25, 210);
             this.invoeradreslabel.Name = "invoeradreslabel";
             this.invoeradreslabel.Size = new System.Drawing.Size(64, 23);
             this.invoeradreslabel.TabIndex = 6;
@@ -157,7 +161,7 @@
             // 
             this.invoerwoonplaatslabel.AutoSize = true;
             this.invoerwoonplaatslabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoerwoonplaatslabel.Location = new System.Drawing.Point(25, 200);
+            this.invoerwoonplaatslabel.Location = new System.Drawing.Point(25, 160);
             this.invoerwoonplaatslabel.Name = "invoerwoonplaatslabel";
             this.invoerwoonplaatslabel.Size = new System.Drawing.Size(121, 23);
             this.invoerwoonplaatslabel.TabIndex = 7;
@@ -167,7 +171,7 @@
             // 
             this.invoerwachtwoordlabel.AutoSize = true;
             this.invoerwachtwoordlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoerwachtwoordlabel.Location = new System.Drawing.Point(25, 400);
+            this.invoerwachtwoordlabel.Location = new System.Drawing.Point(25, 410);
             this.invoerwachtwoordlabel.Name = "invoerwachtwoordlabel";
             this.invoerwachtwoordlabel.Size = new System.Drawing.Size(128, 23);
             this.invoerwachtwoordlabel.TabIndex = 8;
@@ -177,7 +181,7 @@
             // 
             this.invoerstudierichtinglabel.AutoSize = true;
             this.invoerstudierichtinglabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoerstudierichtinglabel.Location = new System.Drawing.Point(25, 450);
+            this.invoerstudierichtinglabel.Location = new System.Drawing.Point(25, 460);
             this.invoerstudierichtinglabel.Name = "invoerstudierichtinglabel";
             this.invoerstudierichtinglabel.Size = new System.Drawing.Size(156, 23);
             this.invoerstudierichtinglabel.TabIndex = 9;
@@ -186,7 +190,7 @@
             // invoeradrestextbox
             // 
             this.invoeradrestextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoeradrestextbox.Location = new System.Drawing.Point(189, 247);
+            this.invoeradrestextbox.Location = new System.Drawing.Point(189, 210);
             this.invoeradrestextbox.Name = "invoeradrestextbox";
             this.invoeradrestextbox.Size = new System.Drawing.Size(230, 30);
             this.invoeradrestextbox.TabIndex = 5;
@@ -194,7 +198,7 @@
             // invoerwoonplaatstextbox
             // 
             this.invoerwoonplaatstextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoerwoonplaatstextbox.Location = new System.Drawing.Point(189, 197);
+            this.invoerwoonplaatstextbox.Location = new System.Drawing.Point(189, 160);
             this.invoerwoonplaatstextbox.Name = "invoerwoonplaatstextbox";
             this.invoerwoonplaatstextbox.Size = new System.Drawing.Size(230, 30);
             this.invoerwoonplaatstextbox.TabIndex = 4;
@@ -202,7 +206,7 @@
             // invoervoornaamtextbox
             // 
             this.invoervoornaamtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoervoornaamtextbox.Location = new System.Drawing.Point(189, 147);
+            this.invoervoornaamtextbox.Location = new System.Drawing.Point(189, 110);
             this.invoervoornaamtextbox.Name = "invoervoornaamtextbox";
             this.invoervoornaamtextbox.Size = new System.Drawing.Size(230, 30);
             this.invoervoornaamtextbox.TabIndex = 3;
@@ -210,11 +214,11 @@
             // invoerwachtwoordtextbox
             // 
             this.invoerwachtwoordtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoerwachtwoordtextbox.Location = new System.Drawing.Point(189, 397);
+            this.invoerwachtwoordtextbox.Location = new System.Drawing.Point(189, 410);
             this.invoerwachtwoordtextbox.Name = "invoerwachtwoordtextbox";
             this.invoerwachtwoordtextbox.PasswordChar = '*';
             this.invoerwachtwoordtextbox.Size = new System.Drawing.Size(230, 30);
-            this.invoerwachtwoordtextbox.TabIndex = 9;
+            this.invoerwachtwoordtextbox.TabIndex = 10;
             // 
             // invoerinlognaambutton
             // 
@@ -248,10 +252,10 @@
             // invoeropslaanbutton
             // 
             this.invoeropslaanbutton.Font = new System.Drawing.Font("Verdana", 10F);
-            this.invoeropslaanbutton.Location = new System.Drawing.Point(189, 483);
+            this.invoeropslaanbutton.Location = new System.Drawing.Point(189, 500);
             this.invoeropslaanbutton.Name = "invoeropslaanbutton";
             this.invoeropslaanbutton.Size = new System.Drawing.Size(230, 30);
-            this.invoeropslaanbutton.TabIndex = 12;
+            this.invoeropslaanbutton.TabIndex = 13;
             this.invoeropslaanbutton.Text = "Opslaan";
             this.invoeropslaanbutton.UseVisualStyleBackColor = true;
             this.invoeropslaanbutton.Click += new System.EventHandler(this.invoeropslaanbutton_Click);
@@ -260,7 +264,7 @@
             // 
             this.invoergeboortedatumlabel.AutoSize = true;
             this.invoergeboortedatumlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoergeboortedatumlabel.Location = new System.Drawing.Point(25, 350);
+            this.invoergeboortedatumlabel.Location = new System.Drawing.Point(25, 360);
             this.invoergeboortedatumlabel.Name = "invoergeboortedatumlabel";
             this.invoergeboortedatumlabel.Size = new System.Drawing.Size(158, 23);
             this.invoergeboortedatumlabel.TabIndex = 13;
@@ -281,7 +285,7 @@
             this.wijzigeninlognaambutton.Location = new System.Drawing.Point(664, 165);
             this.wijzigeninlognaambutton.Name = "wijzigeninlognaambutton";
             this.wijzigeninlognaambutton.Size = new System.Drawing.Size(175, 30);
-            this.wijzigeninlognaambutton.TabIndex = 14;
+            this.wijzigeninlognaambutton.TabIndex = 15;
             this.wijzigeninlognaambutton.Text = "Haal Student Op";
             this.wijzigeninlognaambutton.UseVisualStyleBackColor = true;
             this.wijzigeninlognaambutton.Click += new System.EventHandler(this.wijzigeninlognaambutton_Click);
@@ -292,7 +296,7 @@
             this.wijzigeninlognaamtextbox.Location = new System.Drawing.Point(664, 129);
             this.wijzigeninlognaamtextbox.Name = "wijzigeninlognaamtextbox";
             this.wijzigeninlognaamtextbox.Size = new System.Drawing.Size(175, 30);
-            this.wijzigeninlognaamtextbox.TabIndex = 13;
+            this.wijzigeninlognaamtextbox.TabIndex = 14;
             // 
             // wijzigeninlognaamlabel
             // 
@@ -308,7 +312,7 @@
             // 
             this.wijzigennaamlabel.AutoSize = true;
             this.wijzigennaamlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigennaamlabel.Location = new System.Drawing.Point(845, 97);
+            this.wijzigennaamlabel.Location = new System.Drawing.Point(845, 60);
             this.wijzigennaamlabel.Name = "wijzigennaamlabel";
             this.wijzigennaamlabel.Size = new System.Drawing.Size(64, 23);
             this.wijzigennaamlabel.TabIndex = 18;
@@ -318,7 +322,7 @@
             // 
             this.wijzigenvoornaamlabel.AutoSize = true;
             this.wijzigenvoornaamlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenvoornaamlabel.Location = new System.Drawing.Point(845, 150);
+            this.wijzigenvoornaamlabel.Location = new System.Drawing.Point(845, 110);
             this.wijzigenvoornaamlabel.Name = "wijzigenvoornaamlabel";
             this.wijzigenvoornaamlabel.Size = new System.Drawing.Size(106, 23);
             this.wijzigenvoornaamlabel.TabIndex = 19;
@@ -328,7 +332,7 @@
             // 
             this.wijzigenwoonplaatslabel.AutoSize = true;
             this.wijzigenwoonplaatslabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenwoonplaatslabel.Location = new System.Drawing.Point(845, 200);
+            this.wijzigenwoonplaatslabel.Location = new System.Drawing.Point(845, 160);
             this.wijzigenwoonplaatslabel.Name = "wijzigenwoonplaatslabel";
             this.wijzigenwoonplaatslabel.Size = new System.Drawing.Size(121, 23);
             this.wijzigenwoonplaatslabel.TabIndex = 20;
@@ -338,7 +342,7 @@
             // 
             this.wijzigenadreslabel.AutoSize = true;
             this.wijzigenadreslabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenadreslabel.Location = new System.Drawing.Point(845, 250);
+            this.wijzigenadreslabel.Location = new System.Drawing.Point(845, 210);
             this.wijzigenadreslabel.Name = "wijzigenadreslabel";
             this.wijzigenadreslabel.Size = new System.Drawing.Size(64, 23);
             this.wijzigenadreslabel.TabIndex = 21;
@@ -348,7 +352,7 @@
             // 
             this.wijzigenmanvrouwlabel.AutoSize = true;
             this.wijzigenmanvrouwlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenmanvrouwlabel.Location = new System.Drawing.Point(845, 300);
+            this.wijzigenmanvrouwlabel.Location = new System.Drawing.Point(845, 310);
             this.wijzigenmanvrouwlabel.Name = "wijzigenmanvrouwlabel";
             this.wijzigenmanvrouwlabel.Size = new System.Drawing.Size(119, 23);
             this.wijzigenmanvrouwlabel.TabIndex = 22;
@@ -358,7 +362,7 @@
             // 
             this.wijzigengeboortedatumlabel.AutoSize = true;
             this.wijzigengeboortedatumlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigengeboortedatumlabel.Location = new System.Drawing.Point(845, 350);
+            this.wijzigengeboortedatumlabel.Location = new System.Drawing.Point(845, 360);
             this.wijzigengeboortedatumlabel.Name = "wijzigengeboortedatumlabel";
             this.wijzigengeboortedatumlabel.Size = new System.Drawing.Size(158, 23);
             this.wijzigengeboortedatumlabel.TabIndex = 23;
@@ -368,7 +372,7 @@
             // 
             this.wijzigewachtwoordlabel.AutoSize = true;
             this.wijzigewachtwoordlabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigewachtwoordlabel.Location = new System.Drawing.Point(845, 400);
+            this.wijzigewachtwoordlabel.Location = new System.Drawing.Point(845, 410);
             this.wijzigewachtwoordlabel.Name = "wijzigewachtwoordlabel";
             this.wijzigewachtwoordlabel.Size = new System.Drawing.Size(128, 23);
             this.wijzigewachtwoordlabel.TabIndex = 24;
@@ -378,7 +382,7 @@
             // 
             this.wijzigenstudierichtinglabel.AutoSize = true;
             this.wijzigenstudierichtinglabel.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenstudierichtinglabel.Location = new System.Drawing.Point(845, 450);
+            this.wijzigenstudierichtinglabel.Location = new System.Drawing.Point(845, 460);
             this.wijzigenstudierichtinglabel.Name = "wijzigenstudierichtinglabel";
             this.wijzigenstudierichtinglabel.Size = new System.Drawing.Size(156, 23);
             this.wijzigenstudierichtinglabel.TabIndex = 25;
@@ -387,51 +391,51 @@
             // wijzigenwachtwoordtextbox
             // 
             this.wijzigenwachtwoordtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenwachtwoordtextbox.Location = new System.Drawing.Point(1009, 397);
+            this.wijzigenwachtwoordtextbox.Location = new System.Drawing.Point(1009, 410);
             this.wijzigenwachtwoordtextbox.Name = "wijzigenwachtwoordtextbox";
             this.wijzigenwachtwoordtextbox.PasswordChar = '*';
             this.wijzigenwachtwoordtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenwachtwoordtextbox.TabIndex = 23;
+            this.wijzigenwachtwoordtextbox.TabIndex = 25;
             // 
             // wijzigenadrestextbox
             // 
             this.wijzigenadrestextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenadrestextbox.Location = new System.Drawing.Point(1009, 247);
+            this.wijzigenadrestextbox.Location = new System.Drawing.Point(1009, 210);
             this.wijzigenadrestextbox.Name = "wijzigenadrestextbox";
             this.wijzigenadrestextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenadrestextbox.TabIndex = 18;
+            this.wijzigenadrestextbox.TabIndex = 19;
             // 
             // wijzigenwoonplaatstextbox
             // 
             this.wijzigenwoonplaatstextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenwoonplaatstextbox.Location = new System.Drawing.Point(1009, 197);
+            this.wijzigenwoonplaatstextbox.Location = new System.Drawing.Point(1009, 160);
             this.wijzigenwoonplaatstextbox.Name = "wijzigenwoonplaatstextbox";
             this.wijzigenwoonplaatstextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenwoonplaatstextbox.TabIndex = 17;
+            this.wijzigenwoonplaatstextbox.TabIndex = 18;
             // 
             // wijzigenvoornaamtextbox
             // 
             this.wijzigenvoornaamtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigenvoornaamtextbox.Location = new System.Drawing.Point(1009, 147);
+            this.wijzigenvoornaamtextbox.Location = new System.Drawing.Point(1009, 110);
             this.wijzigenvoornaamtextbox.Name = "wijzigenvoornaamtextbox";
             this.wijzigenvoornaamtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenvoornaamtextbox.TabIndex = 16;
+            this.wijzigenvoornaamtextbox.TabIndex = 17;
             // 
             // wijzigennaamtextbox
             // 
             this.wijzigennaamtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigennaamtextbox.Location = new System.Drawing.Point(1009, 97);
+            this.wijzigennaamtextbox.Location = new System.Drawing.Point(1009, 60);
             this.wijzigennaamtextbox.Name = "wijzigennaamtextbox";
             this.wijzigennaamtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigennaamtextbox.TabIndex = 15;
+            this.wijzigennaamtextbox.TabIndex = 16;
             // 
             // wijzigenstudentopslaanbutton
             // 
             this.wijzigenstudentopslaanbutton.Font = new System.Drawing.Font("Verdana", 10F);
-            this.wijzigenstudentopslaanbutton.Location = new System.Drawing.Point(1009, 497);
+            this.wijzigenstudentopslaanbutton.Location = new System.Drawing.Point(1009, 500);
             this.wijzigenstudentopslaanbutton.Name = "wijzigenstudentopslaanbutton";
             this.wijzigenstudentopslaanbutton.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenstudentopslaanbutton.TabIndex = 25;
+            this.wijzigenstudentopslaanbutton.TabIndex = 27;
             this.wijzigenstudentopslaanbutton.Text = "Wijzigingen Opslaan";
             this.wijzigenstudentopslaanbutton.UseVisualStyleBackColor = true;
             this.wijzigenstudentopslaanbutton.Click += new System.EventHandler(this.wijzigenstudentopslaanbutton_Click);
@@ -439,10 +443,10 @@
             // wijzigenstudentverwijderenbutton
             // 
             this.wijzigenstudentverwijderenbutton.Font = new System.Drawing.Font("Verdana", 10F);
-            this.wijzigenstudentverwijderenbutton.Location = new System.Drawing.Point(773, 497);
+            this.wijzigenstudentverwijderenbutton.Location = new System.Drawing.Point(773, 500);
             this.wijzigenstudentverwijderenbutton.Name = "wijzigenstudentverwijderenbutton";
             this.wijzigenstudentverwijderenbutton.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenstudentverwijderenbutton.TabIndex = 26;
+            this.wijzigenstudentverwijderenbutton.TabIndex = 28;
             this.wijzigenstudentverwijderenbutton.Text = "Student Verwijderen";
             this.wijzigenstudentverwijderenbutton.UseVisualStyleBackColor = true;
             this.wijzigenstudentverwijderenbutton.Click += new System.EventHandler(this.wijzigenstudentverwijderenbutton_Click);
@@ -452,7 +456,7 @@
             this.wijzigenstudentlabel.AutoSize = true;
             this.wijzigenstudentlabel.BackColor = System.Drawing.Color.Transparent;
             this.wijzigenstudentlabel.Font = new System.Drawing.Font("Verdana", 20F);
-            this.wijzigenstudentlabel.Location = new System.Drawing.Point(658, 25);
+            this.wijzigenstudentlabel.Location = new System.Drawing.Point(658, 20);
             this.wijzigenstudentlabel.Name = "wijzigenstudentlabel";
             this.wijzigenstudentlabel.Size = new System.Drawing.Size(362, 32);
             this.wijzigenstudentlabel.TabIndex = 36;
@@ -461,27 +465,27 @@
             // invoergeboortedatummaskedtextbox
             // 
             this.invoergeboortedatummaskedtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.invoergeboortedatummaskedtextbox.Location = new System.Drawing.Point(189, 347);
+            this.invoergeboortedatummaskedtextbox.Location = new System.Drawing.Point(189, 360);
             this.invoergeboortedatummaskedtextbox.Mask = "00/00/0000";
             this.invoergeboortedatummaskedtextbox.Name = "invoergeboortedatummaskedtextbox";
             this.invoergeboortedatummaskedtextbox.Size = new System.Drawing.Size(230, 30);
-            this.invoergeboortedatummaskedtextbox.TabIndex = 8;
+            this.invoergeboortedatummaskedtextbox.TabIndex = 9;
             // 
             // wijzigengeboortedatummaskedtextbox
             // 
             this.wijzigengeboortedatummaskedtextbox.Font = new System.Drawing.Font("Verdana", 14F);
-            this.wijzigengeboortedatummaskedtextbox.Location = new System.Drawing.Point(1009, 347);
+            this.wijzigengeboortedatummaskedtextbox.Location = new System.Drawing.Point(1009, 360);
             this.wijzigengeboortedatummaskedtextbox.Mask = "00/00/0000";
             this.wijzigengeboortedatummaskedtextbox.Name = "wijzigengeboortedatummaskedtextbox";
             this.wijzigengeboortedatummaskedtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigengeboortedatummaskedtextbox.TabIndex = 21;
+            this.wijzigengeboortedatummaskedtextbox.TabIndex = 23;
             // 
             // invoerwachtwoordlatenzienbutton
             // 
-            this.invoerwachtwoordlatenzienbutton.Location = new System.Drawing.Point(425, 403);
+            this.invoerwachtwoordlatenzienbutton.Location = new System.Drawing.Point(425, 410);
             this.invoerwachtwoordlatenzienbutton.Name = "invoerwachtwoordlatenzienbutton";
             this.invoerwachtwoordlatenzienbutton.Size = new System.Drawing.Size(129, 23);
-            this.invoerwachtwoordlatenzienbutton.TabIndex = 10;
+            this.invoerwachtwoordlatenzienbutton.TabIndex = 11;
             this.invoerwachtwoordlatenzienbutton.Text = "Wachtwoord laten zien";
             this.invoerwachtwoordlatenzienbutton.UseVisualStyleBackColor = true;
             this.invoerwachtwoordlatenzienbutton.Click += new System.EventHandler(this.invoerwachtwoordlatenzienbutton_Click);
@@ -495,10 +499,10 @@
             "BIM",
             "ISM",
             "WEBDEV"});
-            this.invoerstudierichtingcombobox.Location = new System.Drawing.Point(189, 447);
+            this.invoerstudierichtingcombobox.Location = new System.Drawing.Point(189, 460);
             this.invoerstudierichtingcombobox.Name = "invoerstudierichtingcombobox";
             this.invoerstudierichtingcombobox.Size = new System.Drawing.Size(230, 31);
-            this.invoerstudierichtingcombobox.TabIndex = 11;
+            this.invoerstudierichtingcombobox.TabIndex = 12;
             // 
             // wijzigenstudierichtingcombobox
             // 
@@ -509,10 +513,10 @@
             "BIM",
             "ISM",
             "WEBDEV"});
-            this.wijzigenstudierichtingcombobox.Location = new System.Drawing.Point(1009, 447);
+            this.wijzigenstudierichtingcombobox.Location = new System.Drawing.Point(1009, 460);
             this.wijzigenstudierichtingcombobox.Name = "wijzigenstudierichtingcombobox";
             this.wijzigenstudierichtingcombobox.Size = new System.Drawing.Size(230, 31);
-            this.wijzigenstudierichtingcombobox.TabIndex = 24;
+            this.wijzigenstudierichtingcombobox.TabIndex = 26;
             // 
             // invoermanvrouwcombobox
             // 
@@ -521,10 +525,10 @@
             this.invoermanvrouwcombobox.Items.AddRange(new object[] {
             "Man",
             "Vrouw"});
-            this.invoermanvrouwcombobox.Location = new System.Drawing.Point(189, 297);
+            this.invoermanvrouwcombobox.Location = new System.Drawing.Point(189, 310);
             this.invoermanvrouwcombobox.Name = "invoermanvrouwcombobox";
             this.invoermanvrouwcombobox.Size = new System.Drawing.Size(230, 31);
-            this.invoermanvrouwcombobox.TabIndex = 7;
+            this.invoermanvrouwcombobox.TabIndex = 8;
             // 
             // wijzigenmanvrouwcombobox
             // 
@@ -533,10 +537,10 @@
             this.wijzigenmanvrouwcombobox.Items.AddRange(new object[] {
             "Man",
             "Vrouw"});
-            this.wijzigenmanvrouwcombobox.Location = new System.Drawing.Point(1009, 297);
+            this.wijzigenmanvrouwcombobox.Location = new System.Drawing.Point(1009, 310);
             this.wijzigenmanvrouwcombobox.Name = "wijzigenmanvrouwcombobox";
             this.wijzigenmanvrouwcombobox.Size = new System.Drawing.Size(230, 31);
-            this.wijzigenmanvrouwcombobox.TabIndex = 20;
+            this.wijzigenmanvrouwcombobox.TabIndex = 22;
             // 
             // wijzigenoudestudierichtinglabel
             // 
@@ -571,7 +575,7 @@
             this.wijzigenstudentsiqtextbox.Location = new System.Drawing.Point(728, 247);
             this.wijzigenstudentsiqtextbox.Name = "wijzigenstudentsiqtextbox";
             this.wijzigenstudentsiqtextbox.Size = new System.Drawing.Size(54, 30);
-            this.wijzigenstudentsiqtextbox.TabIndex = 19;
+            this.wijzigenstudentsiqtextbox.TabIndex = 21;
             // 
             // wijzigenstudentiqlabel
             // 
@@ -588,16 +592,56 @@
             this.wijzigenwachtwoordlatenzienbutton.Location = new System.Drawing.Point(710, 403);
             this.wijzigenwachtwoordlatenzienbutton.Name = "wijzigenwachtwoordlatenzienbutton";
             this.wijzigenwachtwoordlatenzienbutton.Size = new System.Drawing.Size(129, 23);
-            this.wijzigenwachtwoordlatenzienbutton.TabIndex = 22;
+            this.wijzigenwachtwoordlatenzienbutton.TabIndex = 24;
             this.wijzigenwachtwoordlatenzienbutton.Text = "Wachtwoord laten zien";
             this.wijzigenwachtwoordlatenzienbutton.UseVisualStyleBackColor = true;
             this.wijzigenwachtwoordlatenzienbutton.Click += new System.EventHandler(this.wijzigenwachtwoordlatenzienbutton_Click);
+            // 
+            // wijzigenemailadreslabel
+            // 
+            this.wijzigenemailadreslabel.AutoSize = true;
+            this.wijzigenemailadreslabel.Font = new System.Drawing.Font("Verdana", 14F);
+            this.wijzigenemailadreslabel.Location = new System.Drawing.Point(845, 260);
+            this.wijzigenemailadreslabel.Name = "wijzigenemailadreslabel";
+            this.wijzigenemailadreslabel.Size = new System.Drawing.Size(122, 23);
+            this.wijzigenemailadreslabel.TabIndex = 49;
+            this.wijzigenemailadreslabel.Text = "Email adres";
+            // 
+            // wijzigenemailadrestextbox
+            // 
+            this.wijzigenemailadrestextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.wijzigenemailadrestextbox.Location = new System.Drawing.Point(1009, 260);
+            this.wijzigenemailadrestextbox.Name = "wijzigenemailadrestextbox";
+            this.wijzigenemailadrestextbox.Size = new System.Drawing.Size(230, 30);
+            this.wijzigenemailadrestextbox.TabIndex = 20;
+            // 
+            // invoeremailadreslabel
+            // 
+            this.invoeremailadreslabel.AutoSize = true;
+            this.invoeremailadreslabel.Font = new System.Drawing.Font("Verdana", 14F);
+            this.invoeremailadreslabel.Location = new System.Drawing.Point(25, 260);
+            this.invoeremailadreslabel.Name = "invoeremailadreslabel";
+            this.invoeremailadreslabel.Size = new System.Drawing.Size(122, 23);
+            this.invoeremailadreslabel.TabIndex = 51;
+            this.invoeremailadreslabel.Text = "Email adres";
+            // 
+            // invoeremailadrestextbox
+            // 
+            this.invoeremailadrestextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.invoeremailadrestextbox.Location = new System.Drawing.Point(189, 260);
+            this.invoeremailadrestextbox.Name = "invoeremailadrestextbox";
+            this.invoeremailadrestextbox.Size = new System.Drawing.Size(230, 30);
+            this.invoeremailadrestextbox.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 561);
+            this.Controls.Add(this.invoeremailadrestextbox);
+            this.Controls.Add(this.invoeremailadreslabel);
+            this.Controls.Add(this.wijzigenemailadrestextbox);
+            this.Controls.Add(this.wijzigenemailadreslabel);
             this.Controls.Add(this.wijzigenwachtwoordlatenzienbutton);
             this.Controls.Add(this.wijzigenstudentiqlabel);
             this.Controls.Add(this.wijzigenstudentsiqtextbox);
@@ -718,6 +762,10 @@
         private System.Windows.Forms.TextBox wijzigenstudentsiqtextbox;
         private System.Windows.Forms.Label wijzigenstudentiqlabel;
         private System.Windows.Forms.Button wijzigenwachtwoordlatenzienbutton;
+        private System.Windows.Forms.Label wijzigenemailadreslabel;
+        private System.Windows.Forms.TextBox wijzigenemailadrestextbox;
+        private System.Windows.Forms.Label invoeremailadreslabel;
+        private System.Windows.Forms.TextBox invoeremailadrestextbox;
     }
 }
 

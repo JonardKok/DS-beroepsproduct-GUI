@@ -102,7 +102,7 @@ namespace DS_GUI
         private void invoeropslaanbutton_Click(object sender, EventArgs e)
         {
             //Check of alles ingevuld is.
-            String[] checkItems = new string[9];
+            String[] checkItems = new string[10];
             checkItems[0] = invoerinlognaamtextbox.Text; //Accountnaam
             checkItems[1] = invoernaamtextbox.Text; //Achternaam
             checkItems[2] = invoervoornaamtextbox.Text; //Voornaam
@@ -112,6 +112,7 @@ namespace DS_GUI
             checkItems[6] = invoergeboortedatummaskedtextbox.Text; //Geboortedatum
             checkItems[7] = invoerwachtwoordtextbox.Text; //Wachtwoord
             checkItems[8] = invoerstudierichtingcombobox.Text; //Studierichting
+            checkItems[9] = invoeremailadrestextbox.Text; //email
 
             for (int i = 0; i < checkItems.Length; i++)
             {
@@ -122,6 +123,35 @@ namespace DS_GUI
                 }
             }
 
+            int geslachtLijst = 0;
+            foreach (string geslacht in invoermanvrouwcombobox.Items)
+            {
+                if (invoermanvrouwcombobox.Text == geslacht.ToString())
+                {
+                    break;
+                }
+                if (invoermanvrouwcombobox.Text != geslacht.ToString() && geslachtLijst == invoermanvrouwcombobox.Items.Count - 1 )
+                {
+                    MessageBox.Show("Opgegeven geslacht bestaat niet in het systeem.", "Studiefout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                geslachtLijst++;
+            }
+
+            int studieLijst = 0;
+            foreach (string OU in invoerstudierichtingcombobox.Items)
+            {
+                if (invoerstudierichtingcombobox.Text == OU.ToString())
+                {
+                    break;
+                }
+                if (invoerstudierichtingcombobox.Text != OU.ToString() && studieLijst == invoerstudierichtingcombobox.Items.Count - 1 )
+                {
+                    MessageBox.Show("Opgegeven studierichting bestaat niet in het systeem.", "Studiefout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                studieLijst++;
+            }
             //Datum checks
             string strDateTime = invoergeboortedatummaskedtextbox.Text;
             string correctedDate = strDateTime.Replace(" ", "0");
@@ -161,6 +191,7 @@ namespace DS_GUI
                 childEntry.Properties["streetAddress"].Value = invoeradrestextbox.Text; //Adres
                 childEntry.Properties["gender"].Value = invoermanvrouwcombobox.Text; //Geslacht
                 childEntry.Properties["info"].Value = invoergeboortedatummaskedtextbox.Text; // Geboortedatum
+                childEntry.Properties["mail"].Value = invoeremailadrestextbox.Text; // Geboortedatum
                 childEntry.CommitChanges();
                 directoryEntry.CommitChanges();
                 childEntry.Invoke("SetPassword", new object[] { invoerwachtwoordtextbox.Text });
@@ -256,6 +287,7 @@ namespace DS_GUI
                 wijzigenmanvrouwcombobox.Text = gebruikerInfo.Properties.Contains("gender") ? gebruikerInfo.Properties["gender"][0].ToString() : "";
                 wijzigengeboortedatummaskedtextbox.Text = gebruikerInfo.Properties.Contains("info") ? gebruikerInfo.Properties["info"][0].ToString() : "";
                 wijzigenstudentsiqtextbox.Text = gebruikerInfo.Properties.Contains("studentsIQ") ? gebruikerInfo.Properties["studentsIQ"][0].ToString() : "";
+                wijzigenemailadrestextbox.Text = gebruikerInfo.Properties.Contains("mail") ? gebruikerInfo.Properties["mail"][0].ToString() : "";
                 wijzigenstudierichtingcombobox.Text = OU;
                 wijzigenoudestudierichtinglabel.Text = OU;
             }
@@ -263,7 +295,7 @@ namespace DS_GUI
 
         private void wijzigenwachtwoordlatenzienbutton_Click(object sender, EventArgs e)
         {
-            //Vraagt  of het wachtwoord getoond moet worden
+            //Vraagt of het wachtwoord getoond moet worden
             if (wijzigenwachtwoordtextbox.PasswordChar == '*')
             {
                 DialogResult result;
@@ -312,7 +344,7 @@ namespace DS_GUI
         private void wijzigenstudentopslaanbutton_Click(object sender, EventArgs e)
         {
             //Check of alles ingevuld is.
-            String[] checkItems = new string[9];
+            String[] checkItems = new string[10];
             checkItems[0] = wijzigeninlognaamtextbox.Text; //Accountnaam
             checkItems[1] = wijzigennaamtextbox.Text; //Achternaam
             checkItems[2] = wijzigenvoornaamtextbox.Text; //Voornaam
@@ -321,6 +353,7 @@ namespace DS_GUI
             checkItems[5] = wijzigenmanvrouwcombobox.Text; //Man/vrouw
             checkItems[6] = wijzigengeboortedatummaskedtextbox.Text; //Geboortedatum
             checkItems[8] = wijzigenstudierichtingcombobox.Text; //Studierichting
+            checkItems[9] = wijzigenemailadrestextbox.Text; //email
 
             for (int i = 0; i < checkItems.Length; i++)
             {
@@ -329,6 +362,36 @@ namespace DS_GUI
                     MessageBox.Show("Niet alle gegevens zijn ingevuld.", "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+            }
+
+            int geslachtLijst = 0;
+            foreach (string geslacht in wijzigenmanvrouwcombobox.Items)
+            {
+                if (wijzigenmanvrouwcombobox.Text == geslacht.ToString())
+                {
+                    break;
+                }
+                if (wijzigenmanvrouwcombobox.Text != geslacht.ToString() && geslachtLijst == wijzigenmanvrouwcombobox.Items.Count - 1)
+                {
+                    MessageBox.Show("Opgegeven geslacht bestaat niet in het systeem.", "Studiefout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                geslachtLijst++;
+            }
+
+            int studieLijst = 0;
+            foreach (string OU in wijzigenstudierichtingcombobox.Items)
+            {
+                if (wijzigenstudierichtingcombobox.Text == OU.ToString())
+                {
+                    break;
+                }
+                if (wijzigenstudierichtingcombobox.Text != OU.ToString() && studieLijst == wijzigenstudierichtingcombobox.Items.Count - 1)
+                {
+                    MessageBox.Show("Opgegeven studierichting bestaat niet in het systeem.", "Studiefout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                studieLijst++;
             }
             //Checkt of de datum geldig is.
             string strDateTime = wijzigengeboortedatummaskedtextbox.Text;
@@ -436,6 +499,7 @@ namespace DS_GUI
                     entryToUpdate.Properties["streetAddress"].Value = wijzigenadrestextbox.Text;
                     entryToUpdate.Properties["gender"].Value = wijzigenmanvrouwcombobox.Text;
                     entryToUpdate.Properties["info"].Value = wijzigengeboortedatummaskedtextbox.Text;
+                    entryToUpdate.Properties["mail"].Value = wijzigenemailadrestextbox.Text;
                     entryToUpdate.CommitChanges();
                     if (wijzigenstudentsiqtextbox.Text != "" && wijzigenstudentsiqtextbox.Text != " ")
                     {

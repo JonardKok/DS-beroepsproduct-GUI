@@ -6,3 +6,4 @@ C:\Users\Administrator\Documents\GitHub\DS-beroepsproduct-GUI\DS_GUI\DS_GUI\obj\
 C:\Users\Administrator\Documents\GitHub\DS-beroepsproduct-GUI\DS_GUI\DS_GUI\obj\Debug\DS_GUI.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\GitHub\DS-beroepsproduct-GUI\DS_GUI\DS_GUI\obj\Debug\DS_GUI.exe
 C:\Users\Administrator\Documents\GitHub\DS-beroepsproduct-GUI\DS_GUI\DS_GUI\obj\Debug\DS_GUI.pdb
+C:\Users\Administrator\Documents\GitHub\DS-beroepsproduct-GUI\DS_GUI\DS_GUI\obj\Debug\DS_GUI.csprojResolveAssemblyReference.cache
