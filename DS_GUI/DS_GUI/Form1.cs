@@ -77,6 +77,27 @@ namespace DS_GUI
         //Opslaan user
         private void invoeropslaanbutton_Click(object sender, EventArgs e)
         {
+            //Check of alles ingevuld is.
+            String[] checkItems = new string[9];
+            checkItems[0] = invoerinlognaamtextbox.Text; //Accountnaam
+            checkItems[1] = invoernaamtextbox.Text; //Achternaam
+            checkItems[2] = invoervoornaamtextbox.Text; //Voornaam
+            checkItems[3] = invoerwoonplaatstextbox.Text; //Woonplaats
+            checkItems[4] = invoeradrestextbox.Text; //Adres
+            checkItems[5] = invoermanvrouwcombobox.Text; //Man/vrouw
+            checkItems[6] = invoergeboortedatummaskedtextbox.Text; //Geboortedatum
+            checkItems[7] = invoerwachtwoordtextbox.Text; //Wachtwoord
+            checkItems[8] = invoerstudierichtingcombobox.Text; //Studierichting
+
+            for (int i = 0; i < checkItems.Length; i++)
+            {
+                if (checkItems[i] == " " || checkItems[i] == "")
+                {
+                    MessageBox.Show("Niet alle gegevens zijn ingevuld.", "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             //Datum checks
             string strDateTime = invoergeboortedatummaskedtextbox.Text;
             string correctedDate = strDateTime.Replace(" ", "0");
@@ -104,9 +125,6 @@ namespace DS_GUI
                 return;
             }
 
-            //Check of alles ingevuld is.
-
-
             //User toevoegen
             try
             {
@@ -121,7 +139,7 @@ namespace DS_GUI
                 childEntry.Properties["info"].Value = invoergeboortedatummaskedtextbox.Text; // Geboortedatum
                 childEntry.CommitChanges();
                 directoryEntry.CommitChanges();
-                childEntry.Invoke("SetPassword", new object[] { invoerwachtwoordtextbox });
+                childEntry.Invoke("SetPassword", new object[] { invoerwachtwoordtextbox.Text });
                 childEntry.CommitChanges();
             }
             catch (Exception ex)
@@ -251,6 +269,26 @@ namespace DS_GUI
 
         private void wijzigenstudentopslaanbutton_Click(object sender, EventArgs e)
         {
+            //Check of alles ingevuld is.
+            String[] checkItems = new string[9];
+            checkItems[0] = wijzigeninlognaamtextbox.Text; //Accountnaam
+            checkItems[1] = wijzigennaamtextbox.Text; //Achternaam
+            checkItems[2] = wijzigenvoornaamtextbox.Text; //Voornaam
+            checkItems[3] = wijzigenwoonplaatstextbox.Text; //Woonplaats
+            checkItems[4] = wijzigenadrestextbox.Text; //Adres
+            checkItems[5] = wijzigenmanvrouwcombobox.Text; //Man/vrouw
+            checkItems[6] = wijzigengeboortedatummaskedtextbox.Text; //Geboortedatum
+            checkItems[7] = wijzigenwachtwoordtextbox.Text; //Wachtwoord
+            checkItems[8] = wijzigenstudierichtingcombobox.Text; //Studierichting
+
+            for (int i = 0; i < checkItems.Length; i++)
+            {
+                if (checkItems[i] == " " || checkItems[i] == "")
+                {
+                    MessageBox.Show("Niet alle gegevens zijn ingevuld.", "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
             //Checkt of de datum geldig is.
             string strDateTime = wijzigengeboortedatummaskedtextbox.Text;
             string correctedDate = strDateTime.Replace(" ", "0");
