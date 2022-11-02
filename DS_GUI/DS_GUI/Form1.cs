@@ -104,6 +104,9 @@ namespace DS_GUI
                 return;
             }
 
+            //Check of alles ingevuld is.
+
+
             //User toevoegen
             try
             {
@@ -114,7 +117,7 @@ namespace DS_GUI
                 childEntry.Properties["givenName"].Value = invoervoornaamtextbox.Text; //Voornaam
                 childEntry.Properties["l"].Value = invoerwoonplaatstextbox.Text; //Woonplaats
                 childEntry.Properties["streetAddress"].Value = invoeradrestextbox.Text; //Adres
-                childEntry.Properties["personalTitle"].Value = invoermanvrouwcombobox.Text; //Geslacht
+                childEntry.Properties["gender"].Value = invoermanvrouwcombobox.Text; //Geslacht
                 childEntry.Properties["info"].Value = invoergeboortedatummaskedtextbox.Text; // Geboortedatum
                 childEntry.CommitChanges();
                 directoryEntry.CommitChanges();
@@ -126,6 +129,20 @@ namespace DS_GUI
                 MessageBox.Show("De gebruiker kon niet toegevoegd worden. Foutmelding: " + ex.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            try
+            {
+                PrincipalContext principalContext = new PrincipalContext(ContextType.Domain, "jonard.prive");
+                UserPrincipal userPrincipal = UserPrincipal.FindByIdentity(principalContext, invoerinlognaamtextbox.Text);
+                userPrincipal.Enabled = true;
+                userPrincipal.Save();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("De gebruiker kon niet toegevoegd worden. Fout:" + ex.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //Voeg gebruiker toe aan een groep
             String[] groupNames = new string[2];
             groupNames[0] = invoermanvrouwcombobox.Text == "Man" ? "GL_Mannen" : "GL_Vrouwen";
             groupNames[1] = jaarVerschil >= 22 ? "GL_StudOuderdan22" : "GL_StudeJongerdan22";
@@ -207,12 +224,13 @@ namespace DS_GUI
                 wijzigenvoornaamtextbox.Text = gebruikerInfo.Properties.Contains("givenName") ? gebruikerInfo.Properties["givenName"][0].ToString() : "";
                 wijzigenwoonplaatstextbox.Text = gebruikerInfo.Properties.Contains("l") ? gebruikerInfo.Properties["l"][0].ToString() : "";
                 wijzigenadrestextbox.Text = gebruikerInfo.Properties.Contains("streetAddress") ? gebruikerInfo.Properties["streetAddress"][0].ToString() : "";
-                wijzigenmanvrouwcombobox.Text = gebruikerInfo.Properties.Contains("personalTitle") ? gebruikerInfo.Properties["personalTitle"][0].ToString() : "";
+                wijzigenmanvrouwcombobox.Text = gebruikerInfo.Properties.Contains("gender") ? gebruikerInfo.Properties["gender"][0].ToString() : "";
                 wijzigengeboortedatummaskedtextbox.Text = gebruikerInfo.Properties.Contains("info") ? gebruikerInfo.Properties["info"][0].ToString() : "";
                 wijzigenstudierichtingcombobox.Text = OU;
+                wijzigenoudestudierichtinglabel.Text = OU;
             }
-
         }
+
 
         private void wijzigenstudentverwijderenbutton_Click(object sender, EventArgs e)
         {
@@ -227,47 +245,147 @@ namespace DS_GUI
                     user.Delete();
                     return;
                 }
-                
             }
         }
 
+
         private void wijzigenstudentopslaanbutton_Click(object sender, EventArgs e)
         {
+            //Checkt of de datum geldig is.
+            string strDateTime = wijzigengeboortedatummaskedtextbox.Text;
+            string correctedDate = strDateTime.Replace(" ", "0");
+            DateTime userDate = DateTime.Now;
+            try
+            {
+                userDate = DateTime.ParseExact(correctedDate, "dd/MM/yyyy", null);
+
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(correctedDate + " is geen geldige datum. Foutmelding: " + exception, "Ongeldige datum", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DateTime tijd = new DateTime(1, 1, 1);
+            TimeSpan verschil = DateTime.Now - userDate;
+            int jaarVerschil = (tijd + verschil).Year - 1;
+            if (jaarVerschil < 4)
+            {
+                MessageBox.Show("Opgegeven geboortedatum geeft een te jonge leeftijd, datum mag niet in het systeem.", "Datumfout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (jaarVerschil > 150)
+            {
+                MessageBox.Show("Opgegeven geboortedatum geeft een te oude leeftijd, datum mag niet in het systeem.", "Datumfout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            //Kijkt of de gebruiker in de goede groep zit na het aanpassen van de gegevens.
+            String[] gewensteGroep = new string[2];
+            String[] ongewensteGroep = new string[2];
+            gewensteGroep[0] = wijzigenmanvrouwcombobox.Text == "Man" ? "GL_Mannen" : "GL_Vrouwen";
+            gewensteGroep[1] = jaarVerschil >= 22 ? "GL_StudOuderdan22" : "GL_StudeJongerdan22";
+            ongewensteGroep[0] = wijzigenmanvrouwcombobox.Text != "Man" ? "GL_Mannen" : "GL_Vrouwen";
+            ongewensteGroep[1] = jaarVerschil < 22 ? "GL_StudOuderdan22" : "GL_StudeJongerdan22";
+            PrincipalContext ctx = new PrincipalContext(ContextType.Domain, "jonard.prive");
+            UserPrincipal user = UserPrincipal.FindByIdentity(ctx, wijzigeninlognaamtextbox.Text);
+            for (int i = 0; i < gewensteGroep.Length; i++)
+            {
+                GroupPrincipal targetGroup = GroupPrincipal.FindByIdentity(ctx, gewensteGroep[i]);
+                if (user != null)
+                {
+                    if (!user.IsMemberOf(targetGroup)) //Als user geen member van de targetGroup is
+                    {
+                        //Voeg gebruiker toe aan nieuwe groep
+                        try
+                        {
+                            using (PrincipalContext addGroup = new PrincipalContext(ContextType.Domain, "jonard.prive"))
+                            {
+                                GroupPrincipal group = GroupPrincipal.FindByIdentity(addGroup, gewensteGroep[i]);
+                                group.Members.Add(addGroup, IdentityType.SamAccountName, wijzigeninlognaamtextbox.Text);
+                                group.Save();
+                            }
+                        }
+                        catch (System.DirectoryServices.DirectoryServicesCOMException E)
+                        {
+                            MessageBox.Show("De gebruiker kon niet toegevoegd worden aan groep: " + gewensteGroep[i] + ". Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+                //Verwijder gebruiker uit oude groep
+                GroupPrincipal oldGroup = GroupPrincipal.FindByIdentity(ctx, gewensteGroep[i]);
+                try
+                {
+                    if (user != null)
+                    {
+                        if (!user.IsMemberOf(targetGroup)) //Als user geen member van de targetGroup is
+                        {
+                            using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, "jonard.prive"))
+                            {
+                                GroupPrincipal group = GroupPrincipal.FindByIdentity(pc, ongewensteGroep[i]);
+                                group.Members.Remove(pc, IdentityType.SamAccountName, wijzigeninlognaamtextbox.Text);
+                                group.Save();
+                            }
+                        }
+                    }
+                }
+                catch (System.DirectoryServices.DirectoryServicesCOMException E)
+                {
+                    MessageBox.Show("De gebruiker kon niet verwijderd worden uit groep: " + ongewensteGroep[i] + ". Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             DirectoryEntry ldapConnection = new DirectoryEntry("LDAP://DC=jonard,DC=prive");
             ldapConnection.Path = "LDAP://DC=jonard,DC=prive";
             ldapConnection.AuthenticationType = AuthenticationTypes.Secure;
             string username = wijzigeninlognaamtextbox.Text;
-            try
+            DirectoryEntry myLdapConnection = ldapConnection;
+            DirectorySearcher search = new DirectorySearcher(myLdapConnection);
+            search.Filter = "(cn=" + username + ")";
+            search.PropertiesToLoad.Add("title");
+            SearchResult result = search.FindOne();
+            if (result != null)
             {
-                DirectoryEntry myLdapConnection = ldapConnection;
-                DirectorySearcher search = new DirectorySearcher(myLdapConnection);
-                search.Filter = "(cn=" + username + ")";
-                search.PropertiesToLoad.Add("title");
-                SearchResult result = search.FindOne();
-                if (result != null)
+                try
                 {
-                    MessageBox.Show("Resultaat gevonden!" + result.ToString());
-                    return;
-                    // create new object from search result
+                    //Gevonden user editen
                     DirectoryEntry entryToUpdate = result.GetDirectoryEntry();
-                    // show existing title
-                    Console.WriteLine("Current title: " + entryToUpdate.Properties["title"][0].ToString());
-                    Console.Write("\n\nEnter new title : ");
-                    // get new title and write to AD
-                    String newTitle = Console.ReadLine();
-                    entryToUpdate.Properties["title"].Value = newTitle;
+                    entryToUpdate.Properties["sn"].Value = wijzigennaamtextbox.Text;
+                    entryToUpdate.Properties["givenName"].Value = wijzigenvoornaamtextbox.Text;
+                    entryToUpdate.Properties["l"].Value = wijzigenwoonplaatstextbox.Text;
+                    entryToUpdate.Properties["streetAddress"].Value = wijzigenadrestextbox.Text;
+                    entryToUpdate.Properties["gender"].Value = wijzigenmanvrouwcombobox.Text;
+                    entryToUpdate.Properties["info"].Value = wijzigengeboortedatummaskedtextbox.Text;
                     entryToUpdate.CommitChanges();
-                    Console.WriteLine("\n\n…new title saved");
-                }
-                else
-                {
-                    MessageBox.Show("Geen resultaat gevonden!" + result.ToString());
+                    //Wachtwoord aanpassen
+                    if (wijzigenwachtwoordtextbox.Text != " " && wijzigenwachtwoordtextbox.Text != "") {
+                        using (var context = new PrincipalContext(ContextType.Domain, "jonard.prive"))
+                        {
+                            using (var gebruiker = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, wijzigeninlognaamtextbox.Text))
+                            {
+                                gebruiker.SetPassword(wijzigenwachtwoordtextbox.Text);
+                                gebruiker.Save();
+                            }
+                        }
+                        //User naar andere OU verplaatsen
+                        if (wijzigenstudierichtingcombobox.Text != wijzigenoudestudierichtinglabel.Text)
+                        {
+                            DirectoryEntry oudeLocatie = new DirectoryEntry("LDAP://CN=" + wijzigeninlognaamtextbox.Text + ", OU=" + wijzigenoudestudierichtinglabel.Text + ", DC=jonard,DC=prive");
+                            DirectoryEntry nieuweLocatie = new DirectoryEntry("LDAP://OU=" + wijzigenstudierichtingcombobox.Text + ", DC=jonard,DC=prive");
+                            oudeLocatie.MoveTo(nieuweLocatie);
+                            nieuweLocatie.Close();
+                            oudeLocatie.Close();
+                        }
+                    }
+                } 
+                catch (System.DirectoryServices.DirectoryServicesCOMException E) {
+                    MessageBox.Show("Het wachtwoord kon niet aangepast worden. Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Exception caught:\n\n" + ex.ToString());
+                MessageBox.Show("Er is iets fout gegaan bij het wijzigen van de user, probeer opnieuw te zoeken." + result.ToString());
             }
+            MessageBox.Show("Gebruiker gewijzigd", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
     }
 }

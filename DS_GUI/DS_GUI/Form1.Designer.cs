@@ -75,6 +75,7 @@
             this.wijzigenstudierichtingcombobox = new System.Windows.Forms.ComboBox();
             this.invoermanvrouwcombobox = new System.Windows.Forms.ComboBox();
             this.wijzigenmanvrouwcombobox = new System.Windows.Forms.ComboBox();
+            this.wijzigenoudestudierichtinglabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.invoerachtergrond)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wijzigenachtergrond)).BeginInit();
             this.SuspendLayout();
@@ -531,11 +532,21 @@
             this.wijzigenmanvrouwcombobox.Size = new System.Drawing.Size(230, 31);
             this.wijzigenmanvrouwcombobox.TabIndex = 43;
             // 
+            // wijzigenoudestudierichtinglabel
+            // 
+            this.wijzigenoudestudierichtinglabel.AutoSize = true;
+            this.wijzigenoudestudierichtinglabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 1F);
+            this.wijzigenoudestudierichtinglabel.Location = new System.Drawing.Point(1006, 481);
+            this.wijzigenoudestudierichtinglabel.Name = "wijzigenoudestudierichtinglabel";
+            this.wijzigenoudestudierichtinglabel.Size = new System.Drawing.Size(0, 2);
+            this.wijzigenoudestudierichtinglabel.TabIndex = 44;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 561);
+            this.Controls.Add(this.wijzigenoudestudierichtinglabel);
             this.Controls.Add(this.wijzigenmanvrouwcombobox);
             this.Controls.Add(this.invoermanvrouwcombobox);
             this.Controls.Add(this.wijzigenstudierichtingcombobox);
@@ -644,6 +655,7 @@
         private System.Windows.Forms.ComboBox wijzigenstudierichtingcombobox;
         private System.Windows.Forms.ComboBox invoermanvrouwcombobox;
         private System.Windows.Forms.ComboBox wijzigenmanvrouwcombobox;
+        private System.Windows.Forms.Label wijzigenoudestudierichtinglabel;
     }
 }
 
