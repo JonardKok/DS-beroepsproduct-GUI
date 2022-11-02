@@ -213,7 +213,7 @@
             this.invoerwachtwoordtextbox.Name = "invoerwachtwoordtextbox";
             this.invoerwachtwoordtextbox.PasswordChar = '*';
             this.invoerwachtwoordtextbox.Size = new System.Drawing.Size(230, 30);
-            this.invoerwachtwoordtextbox.TabIndex = 8;
+            this.invoerwachtwoordtextbox.TabIndex = 9;
             // 
             // invoerinlognaambutton
             // 
@@ -250,7 +250,7 @@
             this.invoeropslaanbutton.Location = new System.Drawing.Point(189, 483);
             this.invoeropslaanbutton.Name = "invoeropslaanbutton";
             this.invoeropslaanbutton.Size = new System.Drawing.Size(230, 30);
-            this.invoeropslaanbutton.TabIndex = 10;
+            this.invoeropslaanbutton.TabIndex = 12;
             this.invoeropslaanbutton.Text = "Opslaan";
             this.invoeropslaanbutton.UseVisualStyleBackColor = true;
             this.invoeropslaanbutton.Click += new System.EventHandler(this.invoeropslaanbutton_Click);
@@ -280,7 +280,7 @@
             this.wijzigeninlognaambutton.Location = new System.Drawing.Point(664, 165);
             this.wijzigeninlognaambutton.Name = "wijzigeninlognaambutton";
             this.wijzigeninlognaambutton.Size = new System.Drawing.Size(175, 30);
-            this.wijzigeninlognaambutton.TabIndex = 15;
+            this.wijzigeninlognaambutton.TabIndex = 14;
             this.wijzigeninlognaambutton.Text = "Haal Student Op";
             this.wijzigeninlognaambutton.UseVisualStyleBackColor = true;
             this.wijzigeninlognaambutton.Click += new System.EventHandler(this.wijzigeninlognaambutton_Click);
@@ -291,7 +291,7 @@
             this.wijzigeninlognaamtextbox.Location = new System.Drawing.Point(664, 129);
             this.wijzigeninlognaamtextbox.Name = "wijzigeninlognaamtextbox";
             this.wijzigeninlognaamtextbox.Size = new System.Drawing.Size(175, 30);
-            this.wijzigeninlognaamtextbox.TabIndex = 16;
+            this.wijzigeninlognaamtextbox.TabIndex = 13;
             // 
             // wijzigeninlognaamlabel
             // 
@@ -389,7 +389,7 @@
             this.wijzigenwachtwoordtextbox.Location = new System.Drawing.Point(1009, 397);
             this.wijzigenwachtwoordtextbox.Name = "wijzigenwachtwoordtextbox";
             this.wijzigenwachtwoordtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenwachtwoordtextbox.TabIndex = 27;
+            this.wijzigenwachtwoordtextbox.TabIndex = 22;
             // 
             // wijzigenadrestextbox
             // 
@@ -397,7 +397,7 @@
             this.wijzigenadrestextbox.Location = new System.Drawing.Point(1009, 247);
             this.wijzigenadrestextbox.Name = "wijzigenadrestextbox";
             this.wijzigenadrestextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenadrestextbox.TabIndex = 30;
+            this.wijzigenadrestextbox.TabIndex = 18;
             // 
             // wijzigenwoonplaatstextbox
             // 
@@ -405,7 +405,7 @@
             this.wijzigenwoonplaatstextbox.Location = new System.Drawing.Point(1009, 197);
             this.wijzigenwoonplaatstextbox.Name = "wijzigenwoonplaatstextbox";
             this.wijzigenwoonplaatstextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenwoonplaatstextbox.TabIndex = 31;
+            this.wijzigenwoonplaatstextbox.TabIndex = 17;
             // 
             // wijzigenvoornaamtextbox
             // 
@@ -413,7 +413,7 @@
             this.wijzigenvoornaamtextbox.Location = new System.Drawing.Point(1009, 147);
             this.wijzigenvoornaamtextbox.Name = "wijzigenvoornaamtextbox";
             this.wijzigenvoornaamtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenvoornaamtextbox.TabIndex = 32;
+            this.wijzigenvoornaamtextbox.TabIndex = 16;
             // 
             // wijzigennaamtextbox
             // 
@@ -421,7 +421,7 @@
             this.wijzigennaamtextbox.Location = new System.Drawing.Point(1009, 97);
             this.wijzigennaamtextbox.Name = "wijzigennaamtextbox";
             this.wijzigennaamtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigennaamtextbox.TabIndex = 33;
+            this.wijzigennaamtextbox.TabIndex = 15;
             // 
             // wijzigenstudentopslaanbutton
             // 
@@ -429,7 +429,7 @@
             this.wijzigenstudentopslaanbutton.Location = new System.Drawing.Point(1009, 497);
             this.wijzigenstudentopslaanbutton.Name = "wijzigenstudentopslaanbutton";
             this.wijzigenstudentopslaanbutton.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenstudentopslaanbutton.TabIndex = 34;
+            this.wijzigenstudentopslaanbutton.TabIndex = 24;
             this.wijzigenstudentopslaanbutton.Text = "Wijzigingen Opslaan";
             this.wijzigenstudentopslaanbutton.UseVisualStyleBackColor = true;
             this.wijzigenstudentopslaanbutton.Click += new System.EventHandler(this.wijzigenstudentopslaanbutton_Click);
@@ -440,7 +440,7 @@
             this.wijzigenstudentverwijderenbutton.Location = new System.Drawing.Point(773, 497);
             this.wijzigenstudentverwijderenbutton.Name = "wijzigenstudentverwijderenbutton";
             this.wijzigenstudentverwijderenbutton.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenstudentverwijderenbutton.TabIndex = 35;
+            this.wijzigenstudentverwijderenbutton.TabIndex = 25;
             this.wijzigenstudentverwijderenbutton.Text = "Student Verwijderen";
             this.wijzigenstudentverwijderenbutton.UseVisualStyleBackColor = true;
             this.wijzigenstudentverwijderenbutton.Click += new System.EventHandler(this.wijzigenstudentverwijderenbutton_Click);
@@ -463,7 +463,7 @@
             this.invoergeboortedatummaskedtextbox.Mask = "00/00/0000";
             this.invoergeboortedatummaskedtextbox.Name = "invoergeboortedatummaskedtextbox";
             this.invoergeboortedatummaskedtextbox.Size = new System.Drawing.Size(230, 30);
-            this.invoergeboortedatummaskedtextbox.TabIndex = 37;
+            this.invoergeboortedatummaskedtextbox.TabIndex = 8;
             // 
             // wijzigengeboortedatummaskedtextbox
             // 
@@ -472,14 +472,14 @@
             this.wijzigengeboortedatummaskedtextbox.Mask = "00/00/0000";
             this.wijzigengeboortedatummaskedtextbox.Name = "wijzigengeboortedatummaskedtextbox";
             this.wijzigengeboortedatummaskedtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigengeboortedatummaskedtextbox.TabIndex = 38;
+            this.wijzigengeboortedatummaskedtextbox.TabIndex = 21;
             // 
             // invoerwachtwoordlatenzienbutton
             // 
             this.invoerwachtwoordlatenzienbutton.Location = new System.Drawing.Point(425, 403);
             this.invoerwachtwoordlatenzienbutton.Name = "invoerwachtwoordlatenzienbutton";
             this.invoerwachtwoordlatenzienbutton.Size = new System.Drawing.Size(129, 23);
-            this.invoerwachtwoordlatenzienbutton.TabIndex = 39;
+            this.invoerwachtwoordlatenzienbutton.TabIndex = 10;
             this.invoerwachtwoordlatenzienbutton.Text = "Wachtwoord laten zien";
             this.invoerwachtwoordlatenzienbutton.UseVisualStyleBackColor = true;
             this.invoerwachtwoordlatenzienbutton.Click += new System.EventHandler(this.invoerwachtwoordlatenzienbutton_Click);
@@ -496,7 +496,7 @@
             this.invoerstudierichtingcombobox.Location = new System.Drawing.Point(189, 447);
             this.invoerstudierichtingcombobox.Name = "invoerstudierichtingcombobox";
             this.invoerstudierichtingcombobox.Size = new System.Drawing.Size(230, 31);
-            this.invoerstudierichtingcombobox.TabIndex = 40;
+            this.invoerstudierichtingcombobox.TabIndex = 11;
             // 
             // wijzigenstudierichtingcombobox
             // 
@@ -510,7 +510,7 @@
             this.wijzigenstudierichtingcombobox.Location = new System.Drawing.Point(1009, 447);
             this.wijzigenstudierichtingcombobox.Name = "wijzigenstudierichtingcombobox";
             this.wijzigenstudierichtingcombobox.Size = new System.Drawing.Size(230, 31);
-            this.wijzigenstudierichtingcombobox.TabIndex = 41;
+            this.wijzigenstudierichtingcombobox.TabIndex = 23;
             // 
             // invoermanvrouwcombobox
             // 
@@ -522,7 +522,7 @@
             this.invoermanvrouwcombobox.Location = new System.Drawing.Point(189, 297);
             this.invoermanvrouwcombobox.Name = "invoermanvrouwcombobox";
             this.invoermanvrouwcombobox.Size = new System.Drawing.Size(230, 31);
-            this.invoermanvrouwcombobox.TabIndex = 42;
+            this.invoermanvrouwcombobox.TabIndex = 7;
             // 
             // wijzigenmanvrouwcombobox
             // 
@@ -534,7 +534,7 @@
             this.wijzigenmanvrouwcombobox.Location = new System.Drawing.Point(1009, 297);
             this.wijzigenmanvrouwcombobox.Name = "wijzigenmanvrouwcombobox";
             this.wijzigenmanvrouwcombobox.Size = new System.Drawing.Size(230, 31);
-            this.wijzigenmanvrouwcombobox.TabIndex = 43;
+            this.wijzigenmanvrouwcombobox.TabIndex = 20;
             // 
             // wijzigenoudestudierichtinglabel
             // 
@@ -551,7 +551,7 @@
             this.invoerstudentiqtextbox.Location = new System.Drawing.Point(482, 247);
             this.invoerstudentiqtextbox.Name = "invoerstudentiqtextbox";
             this.invoerstudentiqtextbox.Size = new System.Drawing.Size(54, 30);
-            this.invoerstudentiqtextbox.TabIndex = 45;
+            this.invoerstudentiqtextbox.TabIndex = 6;
             // 
             // invoerstudentiqlabel
             // 
@@ -569,7 +569,7 @@
             this.wijzigenstudentsiqtextbox.Location = new System.Drawing.Point(728, 247);
             this.wijzigenstudentsiqtextbox.Name = "wijzigenstudentsiqtextbox";
             this.wijzigenstudentsiqtextbox.Size = new System.Drawing.Size(54, 30);
-            this.wijzigenstudentsiqtextbox.TabIndex = 47;
+            this.wijzigenstudentsiqtextbox.TabIndex = 19;
             // 
             // wijzigenstudentiqlabel
             // 
