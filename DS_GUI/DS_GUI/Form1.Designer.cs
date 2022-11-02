@@ -80,6 +80,7 @@
             this.invoerstudentiqlabel = new System.Windows.Forms.Label();
             this.wijzigenstudentsiqtextbox = new System.Windows.Forms.TextBox();
             this.wijzigenstudentiqlabel = new System.Windows.Forms.Label();
+            this.wijzigenwachtwoordlatenzienbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.invoerachtergrond)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wijzigenachtergrond)).BeginInit();
             this.SuspendLayout();
@@ -388,8 +389,9 @@
             this.wijzigenwachtwoordtextbox.Font = new System.Drawing.Font("Verdana", 14F);
             this.wijzigenwachtwoordtextbox.Location = new System.Drawing.Point(1009, 397);
             this.wijzigenwachtwoordtextbox.Name = "wijzigenwachtwoordtextbox";
+            this.wijzigenwachtwoordtextbox.PasswordChar = '*';
             this.wijzigenwachtwoordtextbox.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenwachtwoordtextbox.TabIndex = 22;
+            this.wijzigenwachtwoordtextbox.TabIndex = 23;
             // 
             // wijzigenadrestextbox
             // 
@@ -429,7 +431,7 @@
             this.wijzigenstudentopslaanbutton.Location = new System.Drawing.Point(1009, 497);
             this.wijzigenstudentopslaanbutton.Name = "wijzigenstudentopslaanbutton";
             this.wijzigenstudentopslaanbutton.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenstudentopslaanbutton.TabIndex = 24;
+            this.wijzigenstudentopslaanbutton.TabIndex = 25;
             this.wijzigenstudentopslaanbutton.Text = "Wijzigingen Opslaan";
             this.wijzigenstudentopslaanbutton.UseVisualStyleBackColor = true;
             this.wijzigenstudentopslaanbutton.Click += new System.EventHandler(this.wijzigenstudentopslaanbutton_Click);
@@ -440,7 +442,7 @@
             this.wijzigenstudentverwijderenbutton.Location = new System.Drawing.Point(773, 497);
             this.wijzigenstudentverwijderenbutton.Name = "wijzigenstudentverwijderenbutton";
             this.wijzigenstudentverwijderenbutton.Size = new System.Drawing.Size(230, 30);
-            this.wijzigenstudentverwijderenbutton.TabIndex = 25;
+            this.wijzigenstudentverwijderenbutton.TabIndex = 26;
             this.wijzigenstudentverwijderenbutton.Text = "Student Verwijderen";
             this.wijzigenstudentverwijderenbutton.UseVisualStyleBackColor = true;
             this.wijzigenstudentverwijderenbutton.Click += new System.EventHandler(this.wijzigenstudentverwijderenbutton_Click);
@@ -510,7 +512,7 @@
             this.wijzigenstudierichtingcombobox.Location = new System.Drawing.Point(1009, 447);
             this.wijzigenstudierichtingcombobox.Name = "wijzigenstudierichtingcombobox";
             this.wijzigenstudierichtingcombobox.Size = new System.Drawing.Size(230, 31);
-            this.wijzigenstudierichtingcombobox.TabIndex = 23;
+            this.wijzigenstudierichtingcombobox.TabIndex = 24;
             // 
             // invoermanvrouwcombobox
             // 
@@ -581,11 +583,22 @@
             this.wijzigenstudentiqlabel.TabIndex = 48;
             this.wijzigenstudentiqlabel.Text = "Student IQ";
             // 
+            // wijzigenwachtwoordlatenzienbutton
+            // 
+            this.wijzigenwachtwoordlatenzienbutton.Location = new System.Drawing.Point(710, 403);
+            this.wijzigenwachtwoordlatenzienbutton.Name = "wijzigenwachtwoordlatenzienbutton";
+            this.wijzigenwachtwoordlatenzienbutton.Size = new System.Drawing.Size(129, 23);
+            this.wijzigenwachtwoordlatenzienbutton.TabIndex = 22;
+            this.wijzigenwachtwoordlatenzienbutton.Text = "Wachtwoord laten zien";
+            this.wijzigenwachtwoordlatenzienbutton.UseVisualStyleBackColor = true;
+            this.wijzigenwachtwoordlatenzienbutton.Click += new System.EventHandler(this.wijzigenwachtwoordlatenzienbutton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 561);
+            this.Controls.Add(this.wijzigenwachtwoordlatenzienbutton);
             this.Controls.Add(this.wijzigenstudentiqlabel);
             this.Controls.Add(this.wijzigenstudentsiqtextbox);
             this.Controls.Add(this.invoerstudentiqlabel);
@@ -704,6 +717,7 @@
         private System.Windows.Forms.Label invoerstudentiqlabel;
         private System.Windows.Forms.TextBox wijzigenstudentsiqtextbox;
         private System.Windows.Forms.Label wijzigenstudentiqlabel;
+        private System.Windows.Forms.Button wijzigenwachtwoordlatenzienbutton;
     }
 }
 

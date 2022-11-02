@@ -74,6 +74,30 @@ namespace DS_GUI
 
 
 
+        //Wachtwoord laten zien.
+        private void invoerwachtwoordlatenzienbutton_Click(object sender, EventArgs e)
+        {
+            //Vraagt  of het wachtwoord getoond moet worden
+            if (invoerwachtwoordtextbox.PasswordChar == '*')
+            {
+                DialogResult result;
+                result = MessageBox.Show("Weet u zeker dat u het wachtwoord wil weergeven?", "Veiligheidsvraag", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == System.Windows.Forms.DialogResult.No)
+                {
+                    return;
+                }
+                invoerwachtwoordlatenzienbutton.Text = "Wachtwoord verbergen";
+                invoerwachtwoordtextbox.PasswordChar = '\0'; //Geeft een null character aan PasswordChar
+                return;
+            }
+            else
+            {
+                invoerwachtwoordlatenzienbutton.Text = "Wachtwoord laten zien";
+                invoerwachtwoordtextbox.PasswordChar = '*';
+            }
+        }
+
+
         //Opslaan user
         private void invoeropslaanbutton_Click(object sender, EventArgs e)
         {
@@ -192,30 +216,9 @@ namespace DS_GUI
             MessageBox.Show("Gebruiker toegevoegd", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
-        
-        //Wachtwoord laten zien.
-        private void invoerwachtwoordlatenzienbutton_Click(object sender, EventArgs e)
-        {
-            //Vraagt  of het wachtwoord getoond moet worden
-            if (invoerwachtwoordtextbox.PasswordChar == '*')
-            {
-                DialogResult result;
-                result = MessageBox.Show("Weet u zeker dat u het wachtwoord wil weergeven?", "Veiligheidsvraag", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == System.Windows.Forms.DialogResult.No)
-                {
-                    return;
-                }
-                invoerwachtwoordlatenzienbutton.Text = "Wachtwoord verbergen";
-                invoerwachtwoordtextbox.PasswordChar = '\0'; //Geeft een null character aan PasswordChar
-                wijzigenwachtwoordtextbox.PasswordChar = '\0';
-                return;
-            } else
-            {
-                invoerwachtwoordlatenzienbutton.Text = "Wachtwoord laten zien";
-                invoerwachtwoordtextbox.PasswordChar = '*';
-                wijzigenwachtwoordtextbox.PasswordChar = '*';
-            }
-        }
+
+        //////////////////////////////////////////////////// Wijzigen
+
 
         //Ophalen gegevens
         private void wijzigeninlognaambutton_Click(object sender, EventArgs e)
@@ -258,20 +261,49 @@ namespace DS_GUI
             }
         }
 
-
-        private void wijzigenstudentverwijderenbutton_Click(object sender, EventArgs e)
+        private void wijzigenwachtwoordlatenzienbutton_Click(object sender, EventArgs e)
         {
-            PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
-            UserPrincipal user = UserPrincipal.FindByIdentity(ctx, wijzigeninlognaamtextbox.Text);
-            if (user != null)
+            //Vraagt  of het wachtwoord getoond moet worden
+            if (wijzigenwachtwoordtextbox.PasswordChar == '*')
             {
                 DialogResult result;
-                result = MessageBox.Show("Weet u zeker dat u deze gebruiker wil verwijderen? Dit is onomkeerbaar.", "Melding!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (result == System.Windows.Forms.DialogResult.Yes)
+                result = MessageBox.Show("Weet u zeker dat u het wachtwoord wil weergeven?", "Veiligheidsvraag", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == System.Windows.Forms.DialogResult.No)
                 {
-                    user.Delete();
                     return;
                 }
+                wijzigenwachtwoordlatenzienbutton.Text = "Wachtwoord verbergen";
+                wijzigenwachtwoordtextbox.PasswordChar = '\0';
+                return;
+            }
+            else
+            {
+                wijzigenwachtwoordlatenzienbutton.Text = "Wachtwoord laten zien";
+                wijzigenwachtwoordtextbox.PasswordChar = '*';
+            }
+        }
+
+        //Verwijderen student
+        private void wijzigenstudentverwijderenbutton_Click(object sender, EventArgs e)
+        {
+            if (wijzigeninlognaamtextbox.Text != "" && wijzigeninlognaamtextbox.Text != " " && wijzigeninlognaamtextbox.Text.Length > 0)
+            {
+                PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
+                UserPrincipal user = UserPrincipal.FindByIdentity(ctx, wijzigeninlognaamtextbox.Text);
+                if (user != null)
+                {
+                    DialogResult result;
+                    result = MessageBox.Show("Weet u zeker dat u deze gebruiker wil verwijderen? Dit is onomkeerbaar.", "Melding!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        user.Delete();
+                        return;
+                    }
+                }
+            } else
+            {
+                MessageBox.Show("Nog geen gebruiker gezocht.", "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
         }
 
@@ -448,5 +480,7 @@ namespace DS_GUI
             }
             MessageBox.Show("Gebruiker gewijzigd", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
+
+        
     }
 }
