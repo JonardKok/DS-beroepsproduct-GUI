@@ -141,10 +141,16 @@ namespace DS_GUI
                 directoryEntry.CommitChanges();
                 childEntry.Invoke("SetPassword", new object[] { invoerwachtwoordtextbox.Text });
                 childEntry.CommitChanges();
+                if (invoerstudentiqtextbox.Text != "" && invoerstudentiqtextbox.Text != " ")
+                {
+                    childEntry.Properties["studentsIQ"].Value = invoerstudentiqtextbox.Text; // IQ toevoegen
+                    childEntry.CommitChanges();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("De gebruiker kon niet toegevoegd worden. Foutmelding: " + ex.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             try
@@ -158,6 +164,7 @@ namespace DS_GUI
             catch (Exception ex)
             {
                 Console.WriteLine("De gebruiker kon niet toegevoegd worden. Fout:" + ex.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             //Voeg gebruiker toe aan een groep
@@ -179,6 +186,7 @@ namespace DS_GUI
                 catch (System.DirectoryServices.DirectoryServicesCOMException E)
                 {
                     MessageBox.Show("De gebruiker kon niet toegevoegd worden aan groep: " +  groupNames[i] + ". Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             MessageBox.Show("Gebruiker toegevoegd", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -244,6 +252,7 @@ namespace DS_GUI
                 wijzigenadrestextbox.Text = gebruikerInfo.Properties.Contains("streetAddress") ? gebruikerInfo.Properties["streetAddress"][0].ToString() : "";
                 wijzigenmanvrouwcombobox.Text = gebruikerInfo.Properties.Contains("gender") ? gebruikerInfo.Properties["gender"][0].ToString() : "";
                 wijzigengeboortedatummaskedtextbox.Text = gebruikerInfo.Properties.Contains("info") ? gebruikerInfo.Properties["info"][0].ToString() : "";
+                wijzigenstudentsiqtextbox.Text = gebruikerInfo.Properties.Contains("studentsIQ") ? gebruikerInfo.Properties["studentsIQ"][0].ToString() : "";
                 wijzigenstudierichtingcombobox.Text = OU;
                 wijzigenoudestudierichtinglabel.Text = OU;
             }
@@ -267,6 +276,7 @@ namespace DS_GUI
         }
 
 
+        //Gebruiker wijzigen
         private void wijzigenstudentopslaanbutton_Click(object sender, EventArgs e)
         {
             //Check of alles ingevuld is.
@@ -278,7 +288,6 @@ namespace DS_GUI
             checkItems[4] = wijzigenadrestextbox.Text; //Adres
             checkItems[5] = wijzigenmanvrouwcombobox.Text; //Man/vrouw
             checkItems[6] = wijzigengeboortedatummaskedtextbox.Text; //Geboortedatum
-            checkItems[7] = wijzigenwachtwoordtextbox.Text; //Wachtwoord
             checkItems[8] = wijzigenstudierichtingcombobox.Text; //Studierichting
 
             for (int i = 0; i < checkItems.Length; i++)
@@ -346,6 +355,7 @@ namespace DS_GUI
                         catch (System.DirectoryServices.DirectoryServicesCOMException E)
                         {
                             MessageBox.Show("De gebruiker kon niet toegevoegd worden aan groep: " + gewensteGroep[i] + ". Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
                 }
@@ -370,6 +380,7 @@ namespace DS_GUI
                 catch (System.DirectoryServices.DirectoryServicesCOMException E)
                 {
                     MessageBox.Show("De gebruiker kon niet verwijderd worden uit groep: " + ongewensteGroep[i] + ". Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             DirectoryEntry ldapConnection = new DirectoryEntry("LDAP://DC=jonard,DC=prive");
@@ -394,21 +405,32 @@ namespace DS_GUI
                     entryToUpdate.Properties["gender"].Value = wijzigenmanvrouwcombobox.Text;
                     entryToUpdate.Properties["info"].Value = wijzigengeboortedatummaskedtextbox.Text;
                     entryToUpdate.CommitChanges();
+                    if (wijzigenstudentsiqtextbox.Text != "" && wijzigenstudentsiqtextbox.Text != " ")
+                    {
+                        entryToUpdate.Properties["studentsIQ"].Value = wijzigenstudentsiqtextbox.Text;
+                        entryToUpdate.CommitChanges();
+                    }
                     //Wachtwoord aanpassen
-                    if (wijzigenwachtwoordtextbox.Text != " " && wijzigenwachtwoordtextbox.Text != "") {
-                        using (var context = new PrincipalContext(ContextType.Domain, "jonard.prive"))
+                    if (wijzigenwachtwoordtextbox.Text != " " && wijzigenwachtwoordtextbox.Text != "" && wijzigenwachtwoordtextbox.Text.Length > 1) {
+                        try
                         {
-                            using (var gebruiker = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, wijzigeninlognaamtextbox.Text))
+                            var activeDirectory = new PrincipalContext(ContextType.Domain, "jonard.prive");
+                            using (var gebruiker = UserPrincipal.FindByIdentity(activeDirectory, IdentityType.SamAccountName, wijzigeninlognaamtextbox.Text))
                             {
                                 gebruiker.SetPassword(wijzigenwachtwoordtextbox.Text);
                                 gebruiker.Save();
                             }
                         }
+                        catch (System.DirectoryServices.DirectoryServicesCOMException E)
+                        {
+                            MessageBox.Show("Het wachtwoord kon niet aangepast worden. Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                         //User naar andere OU verplaatsen
                         if (wijzigenstudierichtingcombobox.Text != wijzigenoudestudierichtinglabel.Text)
                         {
-                            DirectoryEntry oudeLocatie = new DirectoryEntry("LDAP://CN=" + wijzigeninlognaamtextbox.Text + ", OU=" + wijzigenoudestudierichtinglabel.Text + ", DC=jonard,DC=prive");
-                            DirectoryEntry nieuweLocatie = new DirectoryEntry("LDAP://OU=" + wijzigenstudierichtingcombobox.Text + ", DC=jonard,DC=prive");
+                            DirectoryEntry oudeLocatie = new DirectoryEntry("LDAP://CN=" + wijzigeninlognaamtextbox.Text + ",OU=" + wijzigenoudestudierichtinglabel.Text + ",DC=jonard,DC=prive");
+                            DirectoryEntry nieuweLocatie = new DirectoryEntry("LDAP://OU=" + wijzigenstudierichtingcombobox.Text + ",DC=jonard,DC=prive");
                             oudeLocatie.MoveTo(nieuweLocatie);
                             nieuweLocatie.Close();
                             oudeLocatie.Close();
@@ -416,7 +438,8 @@ namespace DS_GUI
                     }
                 } 
                 catch (System.DirectoryServices.DirectoryServicesCOMException E) {
-                    MessageBox.Show("Het wachtwoord kon niet aangepast worden. Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Er is iets fout gegaan bij het wijzigen van de user. Foutmelding: " + E.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             else

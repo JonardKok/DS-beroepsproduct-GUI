@@ -76,6 +76,10 @@
             this.invoermanvrouwcombobox = new System.Windows.Forms.ComboBox();
             this.wijzigenmanvrouwcombobox = new System.Windows.Forms.ComboBox();
             this.wijzigenoudestudierichtinglabel = new System.Windows.Forms.Label();
+            this.invoerstudentiqtextbox = new System.Windows.Forms.TextBox();
+            this.invoerstudentiqlabel = new System.Windows.Forms.Label();
+            this.wijzigenstudentsiqtextbox = new System.Windows.Forms.TextBox();
+            this.wijzigenstudentiqlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.invoerachtergrond)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wijzigenachtergrond)).BeginInit();
             this.SuspendLayout();
@@ -541,11 +545,51 @@
             this.wijzigenoudestudierichtinglabel.Size = new System.Drawing.Size(0, 2);
             this.wijzigenoudestudierichtinglabel.TabIndex = 44;
             // 
+            // invoerstudentiqtextbox
+            // 
+            this.invoerstudentiqtextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.invoerstudentiqtextbox.Location = new System.Drawing.Point(482, 247);
+            this.invoerstudentiqtextbox.Name = "invoerstudentiqtextbox";
+            this.invoerstudentiqtextbox.Size = new System.Drawing.Size(54, 30);
+            this.invoerstudentiqtextbox.TabIndex = 45;
+            // 
+            // invoerstudentiqlabel
+            // 
+            this.invoerstudentiqlabel.AutoSize = true;
+            this.invoerstudentiqlabel.Font = new System.Drawing.Font("Verdana", 14F);
+            this.invoerstudentiqlabel.Location = new System.Drawing.Point(454, 280);
+            this.invoerstudentiqlabel.Name = "invoerstudentiqlabel";
+            this.invoerstudentiqlabel.Size = new System.Drawing.Size(114, 23);
+            this.invoerstudentiqlabel.TabIndex = 46;
+            this.invoerstudentiqlabel.Text = "Student IQ";
+            // 
+            // wijzigenstudentsiqtextbox
+            // 
+            this.wijzigenstudentsiqtextbox.Font = new System.Drawing.Font("Verdana", 14F);
+            this.wijzigenstudentsiqtextbox.Location = new System.Drawing.Point(728, 247);
+            this.wijzigenstudentsiqtextbox.Name = "wijzigenstudentsiqtextbox";
+            this.wijzigenstudentsiqtextbox.Size = new System.Drawing.Size(54, 30);
+            this.wijzigenstudentsiqtextbox.TabIndex = 47;
+            // 
+            // wijzigenstudentiqlabel
+            // 
+            this.wijzigenstudentiqlabel.AutoSize = true;
+            this.wijzigenstudentiqlabel.Font = new System.Drawing.Font("Verdana", 14F);
+            this.wijzigenstudentiqlabel.Location = new System.Drawing.Point(696, 280);
+            this.wijzigenstudentiqlabel.Name = "wijzigenstudentiqlabel";
+            this.wijzigenstudentiqlabel.Size = new System.Drawing.Size(114, 23);
+            this.wijzigenstudentiqlabel.TabIndex = 48;
+            this.wijzigenstudentiqlabel.Text = "Student IQ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 561);
+            this.Controls.Add(this.wijzigenstudentiqlabel);
+            this.Controls.Add(this.wijzigenstudentsiqtextbox);
+            this.Controls.Add(this.invoerstudentiqlabel);
+            this.Controls.Add(this.invoerstudentiqtextbox);
             this.Controls.Add(this.wijzigenoudestudierichtinglabel);
             this.Controls.Add(this.wijzigenmanvrouwcombobox);
             this.Controls.Add(this.invoermanvrouwcombobox);
@@ -656,6 +700,10 @@
         private System.Windows.Forms.ComboBox invoermanvrouwcombobox;
         private System.Windows.Forms.ComboBox wijzigenmanvrouwcombobox;
         private System.Windows.Forms.Label wijzigenoudestudierichtinglabel;
+        private System.Windows.Forms.TextBox invoerstudentiqtextbox;
+        private System.Windows.Forms.Label invoerstudentiqlabel;
+        private System.Windows.Forms.TextBox wijzigenstudentsiqtextbox;
+        private System.Windows.Forms.Label wijzigenstudentiqlabel;
     }
 }
 
