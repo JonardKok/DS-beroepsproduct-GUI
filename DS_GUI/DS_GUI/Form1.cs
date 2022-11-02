@@ -113,7 +113,6 @@ namespace DS_GUI
             checkItems[7] = invoerwachtwoordtextbox.Text; //Wachtwoord
             checkItems[8] = invoerstudierichtingcombobox.Text; //Studierichting
             checkItems[9] = invoeremailadrestextbox.Text; //email
-
             for (int i = 0; i < checkItems.Length; i++)
             {
                 if (checkItems[i] == " " || checkItems[i] == "")
@@ -123,6 +122,7 @@ namespace DS_GUI
                 }
             }
 
+            //Check of input van comboboxen overeenkomt met de opties in comboboxen.
             int geslachtLijst = 0;
             foreach (string geslacht in invoermanvrouwcombobox.Items)
             {
@@ -152,6 +152,7 @@ namespace DS_GUI
                 }
                 studieLijst++;
             }
+
             //Datum checks
             string strDateTime = invoergeboortedatummaskedtextbox.Text;
             string correctedDate = strDateTime.Replace(" ", "0");
@@ -207,7 +208,7 @@ namespace DS_GUI
                 MessageBox.Show("De gebruiker kon niet toegevoegd worden. Foutmelding: " + ex.ToString(), "FOUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            //Account enablen.
             try
             {
                 PrincipalContext principalContext = new PrincipalContext(ContextType.Domain, "jonard.prive");
@@ -478,6 +479,7 @@ namespace DS_GUI
                     return;
                 }
             }
+            //Updaten gebruikersinfo
             DirectoryEntry ldapConnection = new DirectoryEntry("LDAP://DC=jonard,DC=prive");
             ldapConnection.Path = "LDAP://DC=jonard,DC=prive";
             ldapConnection.AuthenticationType = AuthenticationTypes.Secure;
